@@ -59,70 +59,263 @@ facebook_username: TieraugenDoc
 # Adds id for google analytics
 google-analytics: G-HB6RDYDEHG
 
-open-mon:
-open-tue:
-open-wed: 12:30 - 14:30
-open-thr:
-open-fri: 12:30 - 14:30
+open-mon: 13:00 - 18:00
+open-tue: 13:00 - 18:00
+open-wed: 
+open-thr: 09:00 - 14:00
+open-fri: 09:00 - 14:00
 open-sat:
 open-sun:
 
 linked-data: > 
     {
       "@context": "https://schema.org",
-      "@type": "VeterinaryCare",
-      "name": "Augentierarzt Greifswald",
-      "medicalSpecialty": "Ophthalmology",
-      "description": "Tierarzt Augen, Augenspezialist, Tieraugenheilkunde, Augen Tierarzt, Veterinärophthalmologie, Augentierarzt, Tieraugenarzt, Mecklenburg-Vorpommern, MV, Mecklenburg Vorpommern, Zuchtuntersuchung, DOK-Untersuchung, Dortmunder Kreis, Augenuntersuchung und Augenoperation bei Tieren",
-      "slogan": "Tieraugenheilkunde",
-      "telephone": "+493834504672",
-      "email": "tierauge@gmail.com",
-      "sameAs": [
-        "https://www.facebook.com/tieraugendoc",
-        "https://twitter.com/Tieraugendoc",
-        "https://www.fvo-vet.de/foerderpreis.htm"
-      ],
-      "openingHours":[
-        "Mi 12:30-14:30",
-        "Fr 12:30-14:30"
-      ],
-      "member": [
-      {
-        "@type": "parentOrganization",
-        "name": "Tierarztpraxis Quandt und Bracke",
-        "url": "https://www.tieraerzte-quandtundbracke.de",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Greifswald",
-          "addressRegion": "MV",
-          "postalCode": "17489",
-          "streetAddress": "An den Wurthen 26",
+      "@graph": [
+        {
+          "@type": "VeterinaryCare",
+          "@id": "https://tieraugen.doctor/#veterinary-care",
+          "url": "https://tieraugen.doctor/",
+          "name": "Augentierarzt Greifswald",
+          "slogan": "Tieraugenheilkunde",
+          "description": "Augenspezialist für Tiere (Veterinärophthalmologie): DOK-/Zuchtuntersuchungen, Augenuntersuchungen und -operationen in Mecklenburg-Vorpommern.",
+          "inLanguage": ["de"],
+          "telephone": "+49 3834 504672",
+          "email": "mailto:tierauge@gmail.com",
+          "image": ["https://tieraugen.doctor/assets/images/greifswald.jpg"],
+          "logo": "https://tieraugen.doctor/assets/images/logo.png",
+          "medicalSpecialty": "https://schema.org/Ophthalmologic",
+
+          "knowsAbout": [
+            "Augenspezialist",
+            "Tieraugenheilkunde",
+            "Lidkorrekturen",
+            "Lidchirurgie",
+            "Lidspaltenplastik",
+            "Lidrandtumoroperation",
+            "Hornhautchirurgie",
+            "Hornhautoperationen",
+            "Kataraktuntersuchung",
+            "PRA-Untersuchungen",
+            "ERG",
+            "Elektroretinogramm",
+            "CCT",
+            "Korneokonjunktivale Transposition",
+            "Konjunktivatransplantat",
+            "Bindehautflap",
+            "Hornhautnaht",
+            "Gundersen-Transplantat",
+            "Distichien-Operation",
+            "Elektroepilation",
+            "Operation ektoper Zilien",
+            "ICLE",
+            "Linsenextraktion bei Linsenluxation",
+            "Lidverletzungen",
+            "Entropiumkorrektur",
+            "Ektropiumkorrektur",
+            "Ductus parotideus Transposition",
+            "Speichelgangverlegung",
+            "Enukleation",
+            "Augapfelentfernung",
+            "Intraskleralprothese",
+            "Augenprothese",
+            "Vorderkammerparazentese",
+            "Punktion von Iriszysten",
+            "Spaltlampenuntersuchung",
+            "indirekte Ophthalmoskopie",
+            "Augenhintergrunduntersuchung",
+            "Netzhautuntersuchung",
+            "Tonometrie",
+            "Augeninnendruckmessung",
+            "Gonioskopie",
+            "Kammerwinkeluntersuchung",
+            "Hornhautabrasion",
+            "Diamond Burr Debridement",
+            "Abrasio corneae bei Ulcus indolens",
+            "SCCED-Behandlung"
+          ],
+
+          "alternateName": [
+            "Augenspezialist für Tiere",
+            "Veterinärophthalmologe",
+            "Tieraugenarzt Mecklenburg-Vorpommern",
+            "Tierarzt Augen Greifswald",
+            "Tieraugenarzt Neubrandenburg"
+          ],
+          "keywords": "Augenspezialist, Tieraugenarzt, Tieraugenheilkunde, Augen Tierarzt, DOK-Untersuchung, Augenoperation, Mecklenburg-Vorpommern, Greifswald, Neubrandenburg",
+
+          "priceRange": "€€",
+          "sameAs": [
+            "https://www.facebook.com/tieraugendoc",
+            "https://twitter.com/Tieraugendoc"
+          ],
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Mecklenburg-Vorpommern",
+            "identifier": "DE-MV"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Terminvergabe",
+            "telephone": "+49 3834 504672",
+            "email": "mailto:tierauge@gmail.com",
+            "availableLanguage": ["de"],
+            "areaServed": "Mecklenburg-Vorpommern"
+          },
+          "offers": [
+            {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://tieraugen.doctor/#service-vet-ophthalmology",
+                "name": "Veterinärophthalmologie",
+                "serviceType": "DOK-/Zuchtuntersuchungen, Augenuntersuchungen, Augenoperationen",
+                "provider": { "@id": "https://tieraugen.doctor/#veterinary-care" },
+                "serviceArea": {
+                  "@type": "AdministrativeArea",
+                  "name": "Mecklenburg-Vorpommern",
+                  "identifier": "DE-MV"
+                }
+              }
+            }
+          ],
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": [
+              {
+                "@type": "EntryPoint",
+                "urlTemplate": "tel:+493834504672",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/IOSPlatform",
+                  "http://schema.org/AndroidPlatform"
+                ]
+              },
+              {
+                "@type": "EntryPoint",
+                "urlTemplate": "mailto:tierauge@gmail.com",
+                "actionPlatform": [
+                  "http://schema.org/DesktopWebPlatform",
+                  "http://schema.org/IOSPlatform",
+                  "http://schema.org/AndroidPlatform"
+                ]
+              }
+            ]
+          },
+          "hasPOS": [
+            { "@id": "https://tieraugen.doctor/#pos-greifswald" },
+            { "@id": "https://tieraugen.doctor/#pos-neubrandenburg" }
+          ]
+        },
+
+        {
+          "@type": "Place",
+          "@id": "https://tieraugen.doctor/#pos-greifswald",
+          "name": "Tierarztpraxis Quandt und Bracke (Augensprechstunde)",
+          "url": "https://www.tieraerzte-quandtundbracke.de",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "An den Wurthen 26",
+            "postalCode": "17489",
+            "addressLocality": "Greifswald",
+            "addressRegion": "Mecklenburg-Vorpommern",
+            "addressCountry": "DE"
+          },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "54.097170",
-            "longitude": "13.397257"
-          }
-        }
-      },
-      {
-        "@type": "parentOrganization",
-        "name": "Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann",
-        "url": "https://lehmann-tierarzt.de",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Neubrandenburg",
-          "addressRegion": "MV",
-          "postalCode": "17033",
-          "streetAddress": "Fritz-Reuter-Straße 7",
+            "latitude": 54.097170,
+            "longitude": 13.397257
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["https://schema.org/Monday", "https://schema.org/Tuesday"],
+              "opens": "13:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Thursday",
+              "opens": "09:00",
+              "closes": "14:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Friday",
+              "opens": "09:00",
+              "closes": "14:00"
+            }
+          ]
+        },
+
+        {
+          "@type": "Place",
+          "@id": "https://tieraugen.doctor/#pos-neubrandenburg",
+          "name": "Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann (Augensprechstunde)",
+          "url": "https://lehmann-tierarzt.de",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Fritz-Reuter-Straße 7",
+            "postalCode": "17033",
+            "addressLocality": "Neubrandenburg",
+            "addressRegion": "Mecklenburg-Vorpommern",
+            "addressCountry": "DE"
+          },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "53.560294345675",
-            "longitude": "13.2548445529906"
-          }
+            "latitude": 53.560294345675,
+            "longitude": 13.2548445529906
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "https://schema.org/Wednesday",
+              "opens": "10:00",
+              "closes": "12:00"
+            }
+          ]
+        },
+
+        {
+          "@type": "FAQPage",
+          "@id": "https://tieraugen.doctor/#faq",
+          "about": { "@id": "https://tieraugen.doctor/#veterinary-care" },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Behandeln Sie Tiere in ganz Mecklenburg-Vorpommern?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. Unsere Augensprechstunden in Greifswald und Neubrandenburg betreuen Tierhalter:innen aus ganz Mecklenburg-Vorpommern."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Bieten Sie DOK-/Zuchtuntersuchungen an?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. Wir führen DOK-/Zuchtuntersuchungen durch und bieten darüber hinaus Diagnostik sowie operative Eingriffe am Auge an."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie kann ich einen Termin vereinbaren?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Termine können telefonisch unter +49 3834 504672 oder per E-Mail an tierauge@gmail.com vereinbart werden. Bitte geben Sie den gewünschten Standort an (Greifswald oder Neubrandenburg)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Wie unterscheidet sich Ihr Dienst von einem normalen Tierarzt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wir sind ausschließlich auf Augenuntersuchungen, Augenbehandlungen und Augenoperationen spezialisiert. Dadurch decken wir ein wesentlich größeres Spektrum in der Tieraugenheilkunde ab als eine allgemeine Tierarztpraxis."
+              }
+            }
+          ]
         }
-      }
-      ],
-      "image": "https://tieraugen.doctor/assets/images/greifswald.jpg"
+      ]
     }
 
 
