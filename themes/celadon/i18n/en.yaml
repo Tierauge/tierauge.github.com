@@ -39,6 +39,8 @@ action_email:
   other: "Email"
 action_location:
   other: "Location"
+action_search:
+  other: "Search"
 trustbar_aria:
   other: "Credentials"
 back_link:

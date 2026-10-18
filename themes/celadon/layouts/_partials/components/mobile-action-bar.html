@@ -25,4 +25,6 @@
   {{ end }}
   {{/* tabler: map-pin */}}
   <a href="{{ site.Home.Permalink }}#anfahrt"><span aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0" /></svg></span>{{ T "action_location" }}</a>
+  {{/* tabler: search — replaces the nav search icon on mobile, where it no longer fits next to the hamburger */}}
+  <button type="button" data-search-open><span aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></span>{{ T "action_search" }}</button>
 </div>

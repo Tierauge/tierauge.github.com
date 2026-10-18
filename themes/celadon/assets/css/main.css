@@ -43,6 +43,8 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   transition: background 0.3s ease, color 0.3s ease;
+  /* Lange Komposita ("Junghundbindehautentzündung") sprengen sonst schmale Spalten */
+  overflow-wrap: break-word;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,12 +52,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Sicherheitsnetz: besuchte Links dürfen nie von der Browser-Vorgabe (lila/dunkelblau)
-   eingefärbt werden — das ist im Dark Mode unlesbar. Jede Link-Regel unten setzt
-   :visited explizit auf denselben Wert; das hier fängt nur nicht anderweitig
-   gestylte Links ab. */
-a:visited {
-  color: inherit;
+/* Sicherheitsnetz: Links dürfen nie von der Browser-Vorgabe (blau/lila) eingefärbt
+   werden — das ist im Dark Mode unlesbar (z. B. Markdown-Links in data/*.yaml).
+   :where() hat Spezifität 0, jede Link-Regel unten (auch ohne :visited) gewinnt. */
+:where(a:link, a:visited) {
+  color: var(--color-primary);
 }
 
 .page-shell {
@@ -164,6 +165,22 @@ body[data-theme="dark"] .morandi-nav {
   white-space: nowrap;
 }
 
+/* Sehr schmale Phones: Marke + Hamburger passen sonst nicht in die Leiste */
+@media (max-width: 400px) {
+  .morandi-nav {
+    width: calc(100% - 1.5rem);
+    padding: 0.6rem 1rem;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -179,6 +196,8 @@ body[data-theme="dark"] .morandi-nav {
   cursor: pointer;
   flex-shrink: 0;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  /* rechtsbündig statt per space-between mittig zwischen Brand und Suche */
+  margin-left: auto;
 }
 
 .nav-toggle-bar {
@@ -659,6 +678,11 @@ body[data-theme="dark"] .morandi-nav {
   border-radius: 12px;
   background: var(--color-primary);
   display: inline-block;
+  flex-shrink: 0;
+}
+
+.section-heading > div {
+  min-width: 0;
 }
 
 .news-list {
@@ -911,7 +935,7 @@ body[data-theme="dark"] .tag {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 1.25rem;
   margin-bottom: 2rem;
 }
@@ -976,12 +1000,6 @@ body[data-theme="dark"] .tag {
 }
 
 .site-footer {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
   margin-top: auto;
   padding: 2.5rem 0 2rem;
   background: var(--color-primary);
@@ -1283,7 +1301,7 @@ body[data-theme="dark"] .tag {
 
 .article-title {
   margin: 0.3rem 0;
-  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
 }
 
 .article-date {
@@ -1376,7 +1394,7 @@ body[data-theme="dark"] .tag {
 
 .listing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -1385,7 +1403,7 @@ body[data-theme="dark"] .tag {
 }
 
 .listing-grid.view-compact {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
 }
 
 .listing-card {
@@ -1575,6 +1593,10 @@ body[data-theme="dark"] .tag {
 .article-nav a:hover,
 .article-nav a:focus-visible {
   color: var(--color-highlight);
+}
+
+.article-nav > * {
+  min-width: 0;
 }
 
 .article-nav .article-nav__center {
@@ -1965,7 +1987,7 @@ body[data-theme="dark"] .chroma .mf {
 .hours-locations {
   container-type: inline-size;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -2041,7 +2063,7 @@ p.hours-filler {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 1.5rem;
   margin: 1.5rem 0;
 }
@@ -2075,7 +2097,7 @@ p.hours-filler {
 /* Map / Anfahrt section */
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 1.5rem;
 }
 
@@ -2237,7 +2259,7 @@ p.hours-filler {
 
 @media (max-width: 960px) {
   .beitraege-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .beitraege-sidebar {
@@ -2415,7 +2437,7 @@ p.hours-filler {
 /* --- Leistungskarten --- */
 .leistungen-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
 }
 
@@ -2684,17 +2706,38 @@ p.hours-filler {
 }
 
 .mobile-action-bar a,
-.mobile-action-bar a:visited {
+.mobile-action-bar a:visited,
+.mobile-action-bar button {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.15rem;
   padding: 0.55rem 0.5rem calc(0.55rem + env(safe-area-inset-bottom));
+  border: 0;
+  background: none;
+  font-family: inherit;
+  line-height: inherit;
+  cursor: pointer;
   color: #fff;
   text-decoration: none;
   font-size: 0.72rem;
   font-weight: 600;
+}
+
+/* Im Dark Mode ist --color-primary ein helles Türkis — weiße Schrift darauf ist
+   unlesbar (~2.7:1), daher bleiben die Leisten beim dunklen Petrol. */
+body[data-theme="dark"] .emergency-banner,
+body[data-theme="dark"] .mobile-action-bar,
+body[data-theme="dark"] .site-footer {
+  background: #06475F;
+}
+
+body[data-theme="dark"] .cta-button--primary,
+body[data-theme="dark"] .cta-button--primary:visited,
+body[data-theme="dark"] .cta-button--ghost:hover,
+body[data-theme="dark"] .cta-button--ghost:focus-visible {
+  color: var(--color-bg);
 }
 
 @media (max-width: 640px) {
@@ -2702,8 +2745,14 @@ p.hours-filler {
     display: flex;
   }
 
+  /* Suche sitzt hier in der Aktionsleiste */
+  .nav-search-toggle {
+    display: none;
+  }
+
   body {
     padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    hyphens: auto;
   }
 
   #scroll-top {

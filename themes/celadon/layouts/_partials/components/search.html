@@ -24,12 +24,12 @@
 
 <script>
   (function () {
-    const openBtn = document.getElementById("nav-search-toggle");
+    const openBtns = document.querySelectorAll("[data-search-open]");
     const dialog = document.getElementById("search-dialog");
     const closeBtn = document.getElementById("search-close");
     const input = document.getElementById("search-input");
     const resultsEl = document.getElementById("search-results");
-    if (!openBtn || !dialog || !closeBtn || !input || !resultsEl) return;
+    if (!openBtns.length || !dialog || !closeBtn || !input || !resultsEl) return;
 
     const indexUrl = {{ "index.json" | relLangURL }};
     const noResultsLabel = {{ T "search_no_results" }};
@@ -148,11 +148,11 @@
       });
     };
 
-    openBtn.addEventListener("click", () => {
+    openBtns.forEach((btn) => btn.addEventListener("click", () => {
       dialog.showModal();
       loadIndex();
       input.focus();
-    });
+    }));
 
     closeBtn.addEventListener("click", () => dialog.close());
 

@@ -39,6 +39,8 @@ action_email:
   other: "E-Mail"
 action_location:
   other: "Standort"
+action_search:
+  other: "Suche"
 trustbar_aria:
   other: "Vertrauensmerkmale"
 back_link:

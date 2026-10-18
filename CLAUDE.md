@@ -100,7 +100,9 @@ Known divergences from upstream:
   `image`/`thumbnail` param — no placeholder fallback, unlike `wissen/list.html`'s cards), a
   description/summary, and the full (untruncated) plain-text body for matching. The nav bar's
   `#nav-search-toggle` icon button is a **sibling** of `.nav-menu`, not a child of it, so it
-  stays visible in both the expanded and hamburger-collapsed nav states. `components/search.html`
+  stays visible in both the expanded and hamburger-collapsed nav states — except at `≤640px`, where
+  it's hidden and a 4th "Suche" button in `.mobile-action-bar` takes over (it didn't fit next to
+  brand + hamburger). Both buttons carry `data-search-open`, which the script binds. `components/search.html`
   (included once from `baseof.html`, alongside `mobile-action-bar.html`) renders a native
   `<dialog>` that lazy-`fetch()`es `/index.json` on first open only and does all matching/scoring/
   snippet-highlighting client-side in vanilla JS — no external search library (Fuse.js, Pagefind,
