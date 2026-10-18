@@ -47,5 +47,7 @@ back_link:
   other: "← Zurück"
 lang_switcher_aria:
   other: "Sprache"
+skip_to_content:
+  other: "Zum Inhalt springen"
 weekdays:
   other: "Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag,Sonntag"

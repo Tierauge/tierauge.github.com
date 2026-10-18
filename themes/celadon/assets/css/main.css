@@ -8,7 +8,7 @@
   --color-highlight: #03AAB0;      /* Meerestürkis */
   --color-highlight-soft: rgba(3, 170, 176, 0.15);
   --color-gold: #E8BA7B;           /* Sandgold — sparsam einsetzen */
-  --color-muted: rgba(18, 48, 58, 0.65);
+  --color-muted: rgba(18, 48, 58, 0.7);
   --shadow-soft: 0 20px 45px rgba(6, 71, 95, 0.12);
 }
 
@@ -2242,7 +2242,6 @@ p.hours-filler {
 
 .beitraege-sidebar .filter-btn .count {
   font-size: 0.75em;
-  opacity: 0.75;
 }
 
 .category-badge {
@@ -2687,7 +2686,7 @@ p.hours-filler {
 
 /* --- Standortkarten: Kurzbeschreibung --- */
 .location-cta-label {
-  color: var(--color-highlight);
+  color: var(--color-primary);
   font-weight: 600;
   font-size: 0.9rem;
   margin: 0;
@@ -2731,6 +2730,50 @@ body[data-theme="dark"] .emergency-banner,
 body[data-theme="dark"] .mobile-action-bar,
 body[data-theme="dark"] .site-footer {
   background: #06475F;
+}
+
+/* Türkis auf Türkis-Tönung erreicht nur ~3.7:1. */
+body[data-theme="dark"] .trustbar-badge {
+  color: var(--color-text);
+}
+
+/* --- Barrierefreiheit --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: #06475F;
+  color: #FFFFFF;
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+#main:focus {
+  outline: none;
+}
+
+/* Fremde iframes (Google Maps) zeigen selbst keinen Fokus. */
+iframe:focus {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
 }
 
 body[data-theme="dark"] .cta-button--primary,
@@ -2808,7 +2851,7 @@ body[data-theme="dark"] .cta-button--ghost:focus-visible {
   box-shadow: 0 25px 50px rgba(6, 71, 95, 0.16);
 }
 
-.augenheilkunde-card h3 {
+.augenheilkunde-card h2 {
   margin: 0 0 0.4rem;
   font-size: 1.15rem;
 }

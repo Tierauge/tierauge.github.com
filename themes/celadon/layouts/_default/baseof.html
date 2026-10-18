@@ -4,11 +4,12 @@
     {{ partial "head.html" . }}
   </head>
   <body data-theme="light">
+    <a class="skip-link" href="#main">{{ T "skip_to_content" }}</a>
     {{ partial "emergency-banner.html" . }}
     <nav class="morandi-nav" id="site-nav">
       <div class="brand">
         <a href="{{ site.Home.Permalink }}">
-          <img src="{{ "images/brand/logo.png" | relURL }}" alt="{{ site.Title }}" class="brand-logo">
+          <img src="{{ "images/brand/logo.png" | relURL }}" alt="" class="brand-logo">
           <span class="brand-name">{{ site.Title }}</span>
         </a>
       </div>
@@ -60,7 +61,7 @@
     </nav>
 
     <div class="page-shell">
-      <main class="main-container">
+      <main class="main-container" id="main" tabindex="-1">
         {{ block "main" . }}{{ end }}
       </main>
     </div>

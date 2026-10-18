@@ -110,6 +110,15 @@ Known divergences from upstream:
   `search_placeholder`, `search_no_results`, `search_close_aria`) were added to all three
   `i18n/*.yaml` files, following the existing `nav_toggle_aria` pattern, rather than the
   hardcoded-German convention used specifically in `list.html`/`single.html`.
+- **Accessibility (WCAG AA, checked with axe in light + dark mode)** — `baseof.html` has a
+  "Zum Inhalt springen" skip link (`skip_to_content` i18n key) to `<main id="main">`, and the
+  brand logo has `alt=""` because the site name sits next to it as text. `emergency-banner.html`
+  is an `<aside>` landmark, and the `/wissen/` sidebar is a labelled `<section>`, not a nested
+  `<aside>`. The lang switcher's label is `.visually-hidden` text, so the visible "DE" stays in
+  its accessible name. `augenheilkunde/list.html` cards use `<h2>`. Contrast fixes in `main.css`:
+  light `--color-muted` alpha is `0.7`, not `0.65`; `.location-cta-label` uses
+  `--color-primary`; dark `.trustbar-badge` uses `--color-text`; and the filter `.count`
+  `opacity` was removed. Re-check contrast in **both** themes after any colour change.
 - **`assets/css/main.css`** — a few mobile-only fixes layered on top of the upstream styles,
   tuned for this site's actual content (not generic upstream behavior):
   - `#scroll-top` has a themed border — it and `.mobile-action-bar` both use

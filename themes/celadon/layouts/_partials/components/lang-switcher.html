@@ -13,7 +13,7 @@ single-language site.
   {{- /* Compact dropdown reusing the nav "Mehr" styles, so it costs the nav row
          only the width of the current language code. */ -}}
   <details class="nav-more lang-switcher">
-    <summary aria-label="{{ T "lang_switcher_aria" }}">{{ $page.Language.Lang | upper }}</summary>
+    <summary><span class="visually-hidden">{{ T "lang_switcher_aria" }}: </span>{{ $page.Language.Lang | upper }}</summary>
     <div class="nav-more-menu">
       {{- range hugo.Sites -}}
         {{- $s := . -}}

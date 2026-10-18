@@ -9,7 +9,7 @@
     <div class="augenheilkunde-grid">
       {{ range .Pages }}
         <a href="{{ .RelPermalink }}" class="augenheilkunde-card">
-          <h3>{{ .Title }}</h3>
+          <h2>{{ .Title }}</h2>
           {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
         </a>
       {{ end }}

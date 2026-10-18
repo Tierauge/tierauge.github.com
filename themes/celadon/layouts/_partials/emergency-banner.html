@@ -11,7 +11,7 @@
   {{ end }}
 {{ end }}
 {{ if $phone }}
-  <div class="emergency-banner">
+  <aside class="emergency-banner">
     <p>{{ T "emergency_banner" }} <a href="tel:{{ replace $phone " " "" }}">{{ $phone }}</a></p>
-  </div>
+  </aside>
 {{ end }}
