@@ -10,8 +10,29 @@ Hugo using the **Celadon** theme, vendored as a standalone copy under `themes/ce
 directory copy, not a symlink into the theme's own git checkout elsewhere on disk).
 
 There is no npm/node build step and no test suite — pure Hugo (Go templates + TOML/YAML). The
-site is single-language (German, `de-DE`) with no `i18n/` usage — see "Vendored theme
-divergence" below for what that implies.
+site is German-first and partly trilingual — see "Languages" below.
+
+## Languages
+
+`hugo.toml` `[languages]` defines `de` (default, served at the root —
+`defaultContentLanguageInSubdir = false` keeps German URLs and the Jekyll aliases unchanged),
+`en` (`/en/`) and `pl` (`/pl/`). Translations are filename-based (`ueber-mich.en.md`,
+`ueber-mich.pl.md`) and exist **only** for the homepage, `augenheilkunde/`, `augenoperationen`,
+`ueber-mich`, `fuer-tieraerzte`, `standorte-kontakt`, `impressum`, `datenschutz`. The Wissen area
+(`wissensbank`, `vortraege`, `patientengeschichten`, `/wissen/`) is deliberately German-only, so
+`[languages.en|pl.params]` drop it from the nav and disable the `wissenteaser` homepage section;
+translated pages link to it with an "(in German)" note. Translated legal pages say the German
+version is binding.
+
+- Per-language params (nav links, homepage section titles/teaser texts, `description`) live under
+  `[languages.<lang>.params]` and are deep-merged over the top-level `[params]`.
+- Translated data lives in `data/en/` and `data/pl/`; German stays flat in `data/` (the theme's
+  3-tier fallback). `standorte-kontakt.html` does the same lookup.
+- Sprechzeiten `day` values must match that language's `weekdays` i18n entry, which
+  `home/hours.html` uses for ordering — a misspelt day silently disappears.
+- UI strings go through `themes/celadon/i18n/{de,en,pl}.yaml` + `{{ T }}`. The language switcher
+  (`components/lang-switcher.html`) is a `.nav-more`-style dropdown showing only the current
+  language code, because a full "DE EN PL" row pushed the German nav into hamburger mode at 1440px.
 
 ## Common commands
 
@@ -56,11 +77,10 @@ Known divergences from upstream:
 - **`layouts/_default/baseof.html`** — adds a `site.Params.nav.extraLinks` "More" dropdown in
   the nav bar (config in `hugo.toml` under `[params.nav]`), used here to link to sections that
   aren't homepage sections (Beiträge, Impressum).
-- **`layouts/_default/list.html` / `single.html`** — UI strings (view toggle labels, "Read →",
-  "Back") and date formatting (`02.01.2006`) are **hardcoded in German** directly in the
-  template, instead of going through `i18n/` + `{{ T }}` like the upstream theme does. This is
-  intentional for a single-language site — don't "fix" it by wiring up i18n unless the site
-  becomes multilingual.
+- **`layouts/_default/list.html`, `wissen/list.html`, `service.html`'s related-articles heading** —
+  UI strings and date formatting (`02.01.2006`) are still **hardcoded in German**. That's fine
+  because these only render on German-only pages (the Wissen area; related wissensbank articles are
+  empty on `en`/`pl`). Move them to `{{ T }}` if the Wissen area ever gets translated.
 - **`layouts/_default/baseof.html`, `assets/css/main.css`, `i18n/*.yaml`** — the nav bar collapses
   into a hamburger menu (`.nav-toggle` / `.nav-menu`, toggled via `#site-nav.nav-collapsed`)
   instead of wrapping or horizontally scrolling the links at a fixed breakpoint. The switch point
@@ -117,9 +137,8 @@ custom `layout`:
 | `kontakt`     | `contact` | `data/kontakt.yaml`  |
 | `anfahrt`     | `map`     | `data/anfahrt.yaml`  |
 
-All `data/*.yaml` files are flat (no `data/<lang>/` folder) since this is single-language —
-they're picked up by the theme's third-tier fallback (see the theme's own CLAUDE.md for the
-3-tier resolution logic).
+German `data/*.yaml` files are flat; English/Polish copies live in `data/en/` and `data/pl/`
+(see "Languages").
 
 ### Content sections (`content/`)
 

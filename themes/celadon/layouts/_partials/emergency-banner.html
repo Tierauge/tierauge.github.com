@@ -12,6 +12,6 @@
 {{ end }}
 {{ if $phone }}
   <div class="emergency-banner">
-    <p>Akute Augenprobleme? Bitte nehmen Sie vorab telefonisch Kontakt auf: <a href="tel:{{ replace $phone " " "" }}">{{ $phone }}</a></p>
+    <p>{{ T "emergency_banner" }} <a href="tel:{{ replace $phone " " "" }}">{{ $phone }}</a></p>
   </div>
 {{ end }}

@@ -31,7 +31,7 @@
     const resultsEl = document.getElementById("search-results");
     if (!openBtn || !dialog || !closeBtn || !input || !resultsEl) return;
 
-    const indexUrl = {{ "index.json" | relURL }};
+    const indexUrl = {{ "index.json" | relLangURL }};
     const noResultsLabel = {{ T "search_no_results" }};
 
     let indexData = null;

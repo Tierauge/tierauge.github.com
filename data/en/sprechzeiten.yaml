@@ -1,0 +1,20 @@
+locations:
+  - name: "Tierarztpraxis Quandt und Bracke"
+    city: "Greifswald"
+    rows:
+      - { day: "Monday" }
+      - { day: "Tuesday" }
+      - { day: "Thursday" }
+      - { day: "Friday" }
+    note_after: "and by appointment"
+  - name: "Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann"
+    city: "Neubrandenburg"
+    rows:
+      - { day: "Wednesday" }
+
+notes: >
+  Emergencies can also be seen outside consultation hours by arrangement.
+
+
+  **Breeding examinations** for three or more animals can also take place outside the practice.
+  Please send enquiries to [tierauge@gmail.com](mailto:tierauge@gmail.com?subject=Zuchtuntersuchung).

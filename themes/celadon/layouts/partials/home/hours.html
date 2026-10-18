@@ -8,7 +8,8 @@
      location's table gets a row per day. Locations without hours on a given
      day render an empty filler row that keeps both tables aligned when
      shown side by side, and collapses away when the cards stack. */}}
-{{ $weekdayOrder := slice "Montag" "Dienstag" "Mittwoch" "Donnerstag" "Freitag" "Samstag" "Sonntag" }}
+{{/* Day names in data/sprechzeiten.yaml must match the current language's "weekdays" i18n entry. */}}
+{{ $weekdayOrder := split (T "weekdays") "," }}
 {{ $usedDays := slice }}
 {{ range $locations }}
   {{ range .rows }}

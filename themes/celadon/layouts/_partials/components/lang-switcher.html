@@ -10,24 +10,29 @@ single-language site.
 
 {{- $page := . -}}
 {{- if hugo.IsMultilingual -}}
-  <nav class="lang-switcher" aria-label="Language">
-    {{- range hugo.Sites -}}
-      {{- $s := . -}}
-      {{- $isCurrent := eq $s.Language.Lang $page.Language.Lang -}}
-      {{- $href := $s.Home.RelPermalink -}}
-      {{- range $page.AllTranslations -}}
-        {{- if eq .Language.Lang $s.Language.Lang -}}
-          {{- $href = .RelPermalink -}}
+  {{- /* Compact dropdown reusing the nav "Mehr" styles, so it costs the nav row
+         only the width of the current language code. */ -}}
+  <details class="nav-more lang-switcher">
+    <summary aria-label="{{ T "lang_switcher_aria" }}">{{ $page.Language.Lang | upper }}</summary>
+    <div class="nav-more-menu">
+      {{- range hugo.Sites -}}
+        {{- $s := . -}}
+        {{- $isCurrent := eq $s.Language.Lang $page.Language.Lang -}}
+        {{- $href := $s.Home.RelPermalink -}}
+        {{- range $page.AllTranslations -}}
+          {{- if eq .Language.Lang $s.Language.Lang -}}
+            {{- $href = .RelPermalink -}}
+          {{- end -}}
         {{- end -}}
+        <a
+          href="{{ $href }}"
+          hreflang="{{ $s.Language.Lang }}"
+          lang="{{ $s.Language.Lang }}"
+          {{- if $isCurrent }}
+          aria-current="true"
+          {{- end }}
+        >{{ $s.Language.Label }}</a>
       {{- end -}}
-      <a
-        href="{{ $href }}"
-        class="lang-link{{ if $isCurrent }} active{{ end }}"
-        hreflang="{{ $s.Language.Lang }}"
-        {{- if $isCurrent }}
-        aria-current="true"
-        {{- end }}
-      >{{ $s.Language.Lang | upper }}</a>
-    {{- end -}}
-  </nav>
+    </div>
+  </details>
 {{- end -}}

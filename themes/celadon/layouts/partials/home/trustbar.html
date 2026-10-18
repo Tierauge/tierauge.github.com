@@ -1,6 +1,6 @@
 {{ $section := .Section }}
 {{ $items := .Data }}
-<div id="{{ $section }}" class="trustbar" aria-label="Vertrauensmerkmale">
+<div id="{{ $section }}" class="trustbar" aria-label="{{ T "trustbar_aria" }}">
   <div class="trustbar-row">
     {{ range $items }}
       <span class="trustbar-badge">{{ . }}</span>

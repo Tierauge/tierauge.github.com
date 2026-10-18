@@ -27,7 +27,7 @@
       <div class="nav-menu" id="nav-menu">
         <div class="nav-links">
           {{ range site.Params.nav.primaryLinks }}
-            <a href="{{ .url | relLangURL }}"{{ if eq $.RelPermalink .url }} aria-current="page"{{ end }}>{{ .title }}</a>
+            <a href="{{ .url | relLangURL }}"{{ if eq $.RelPermalink (.url | relLangURL) }} aria-current="page"{{ end }}>{{ .title }}</a>
           {{ end }}
         </div>
         {{ with site.Params.nav.extraLinks }}
@@ -39,7 +39,7 @@
           </details>
         {{ end }}
         {{ partial "components/lang-switcher.html" . }}
-        {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "#kontakt" "variant" "primary" "extraClass" "nav-cta") }}
+        {{ partial "components/cta-button.html" (dict "label" (T "cta_appointment") "link" "/#kontakt" "variant" "primary" "extraClass" "nav-cta") }}
         <button class="theme-toggle" data-theme-toggle aria-label="{{ T "theme_toggle_aria" }}">
           {{/* tabler: sun */}}
           <span class="icon" data-icon-sun><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg></span>

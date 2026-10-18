@@ -34,9 +34,9 @@
       {{ end }}
     {{ end }}
     <div class="service-cta">
-      {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "/standorte-kontakt/" "variant" "primary") }}
+      {{ partial "components/cta-button.html" (dict "label" (T "cta_appointment") "link" "/standorte-kontakt/" "variant" "primary") }}
       {{ if $phone }}
-        {{ partial "components/cta-button.html" (dict "label" "Praxis anrufen" "link" (printf "tel:%s" (replace $phone " " "")) "variant" "ghost") }}
+        {{ partial "components/cta-button.html" (dict "label" (T "call_practice") "link" (printf "tel:%s" (replace $phone " " "")) "variant" "ghost") }}
       {{ end }}
     </div>
   </div>

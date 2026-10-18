@@ -12,7 +12,7 @@
       {{ with .CurrentSection }}{{ $backHref = .RelPermalink }}{{ end }}
     {{ end }}
     <div class="article-top-row">
-      <a class="article-back" href="{{ $backHref }}">← Zurück</a>
+      <a class="article-back" href="{{ $backHref }}">{{ T "back_link" }}</a>
       <p class="article-date">{{ if .Date }}{{ .Date.Format "02.01.2006" }}{{ end }}</p>
     </div>
     <header class="article-head">

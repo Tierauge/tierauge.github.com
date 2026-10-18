@@ -1,0 +1,19 @@
+subline: "Personal care, thorough diagnostics and specialised veterinary ophthalmology for dogs and cats."
+name: "Dr. Sabine Sahr"
+title: "Veterinarian with additional qualification in ophthalmology"
+affiliation: "Member of the [Dortmunder Kreis (DOK)](https://www.dok-vet.de) – society for the diagnosis of hereditary eye diseases"
+summary: >
+  After 4 years at the Small Animal Clinic of Leipzig University, I worked for
+  6 years at the Augen-Tierarztpraxis Dr. I. Allgoewer in Berlin. I then headed
+  ophthalmology at the Anicura Tierklinik Potsdam for 2 years, and have now
+  returned home to join the team of the
+  [Tierarztpraxis Quandt und Bracke](https://www.tieraerzte-quandtundbracke.de/quandtundbracke).
+profile_image: "images/spaltlampe.jpg"
+profile_layout: "classic"
+profile_image_style: "circle"
+
+links:
+  - label: "Consultation hours"
+    link: "#sprechzeiten"
+  - label: "Contact"
+    link: "#kontakt"

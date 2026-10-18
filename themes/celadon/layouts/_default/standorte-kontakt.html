@@ -1,4 +1,6 @@
 {{ define "main" }}
+  {{/* data/<lang>/ for translations, flat data/ for German */}}
+  {{ $data := index hugo.Data site.Language.Lang | default hugo.Data }}
   <div class="article-shell standorte-kontakt-shell">
     <header class="article-head">
       <h1 class="article-title">{{ .Title }}</h1>
@@ -9,20 +11,20 @@
 
     {{ partial "home/hours.html" (dict
         "Page" .
-        "Config" (dict "title" "Sprechzeiten")
-        "Data" (index hugo.Data "sprechzeiten")
+        "Config" site.Params.homepage.sprechzeiten
+        "Data" (index $data "sprechzeiten")
         "Section" "sprechzeiten") }}
 
     {{ partial "home/contact.html" (dict
         "Page" .
-        "Config" (dict "title" "Kontakt")
-        "Data" (index hugo.Data "kontakt")
+        "Config" site.Params.homepage.kontakt
+        "Data" (index $data "kontakt")
         "Section" "kontakt") }}
 
     {{ partial "home/map.html" (dict
         "Page" .
-        "Config" (dict "title" "Anfahrt")
-        "Data" (index hugo.Data "anfahrt")
+        "Config" site.Params.homepage.anfahrt
+        "Data" (index $data "anfahrt")
         "Section" "anfahrt") }}
   </div>
 {{ end }}

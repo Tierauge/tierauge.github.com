@@ -1,8 +1,8 @@
 theme = "celadon"
 publishDir = "docs"  # GitHub Pages serves master:/docs
 baseURL = "https://tieraugen.doctor/"
-locale = "de-DE"
 defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = false  # keep German URLs (and Jekyll aliases) at the root
 title = "Tierauge im Fokus"
 enableRobotsTXT = true
 
@@ -132,3 +132,90 @@ enableRobotsTXT = true
   [[params.nav.extraLinks]]
     title = "Datenschutz"
     url = "/datenschutz/"
+
+# English and Polish cover the homepage and the practice pages; the Wissen area
+# (wissensbank, vortraege, patientengeschichten) stays German-only, so it is left
+# out of these languages' nav and homepage teaser.
+[languages]
+  [languages.de]
+    locale = "de-DE"
+    label = "Deutsch"
+    weight = 1
+
+  [languages.en]
+    locale = "en-GB"
+    label = "English"
+    weight = 2
+    [languages.en.params]
+      description = "Specialised veterinary ophthalmology, personal care and close cooperation with your family vet – with Dr. Sabine Sahr in Greifswald and Neubrandenburg."
+      [languages.en.params.homepage.about]
+        title = "About me"
+      [languages.en.params.homepage.leistungen]
+        title = "Our services"
+      [languages.en.params.homepage.ablauf]
+        title = "What happens during an eye examination?"
+      [languages.en.params.homepage.sprechzeiten]
+        title = "Consultation hours"
+      [languages.en.params.homepage.kontakt]
+        title = "Contact"
+      [languages.en.params.homepage.anfahrt]
+        title = "Directions"
+      [languages.en.params.homepage.fuertieraerzte]
+        title = "For referring vets"
+        text = "Specialised diagnostics and treatment are carried out in close consultation with the referring practice. Once treatment is complete, findings, treatment plan and recommendations are sent back and the patient is referred back to their family vet."
+        ctaLabel = "Information for vets"
+      [languages.en.params.homepage.wissenteaser]
+        enable = false
+      [languages.en.params.nav]
+        moreLabel = "More"
+        primaryLinks = [
+          { title = "Home", url = "/" },
+          { title = "Ophthalmology", url = "/augenheilkunde/" },
+          { title = "Eye surgery", url = "/augenoperationen/" },
+          { title = "About me", url = "/ueber-mich/" },
+          { title = "For vets", url = "/fuer-tieraerzte/" },
+          { title = "Locations & contact", url = "/standorte-kontakt/" },
+        ]
+        extraLinks = [
+          { title = "Legal notice", url = "/impressum/" },
+          { title = "Privacy", url = "/datenschutz/" },
+        ]
+
+  [languages.pl]
+    locale = "pl-PL"
+    label = "Polski"
+    weight = 3
+    [languages.pl.params]
+      description = "Specjalistyczna okulistyka weterynaryjna, indywidualna opieka i ścisła współpraca z Państwa lekarzem weterynarii – z dr Sabine Sahr w Greifswaldzie i Neubrandenburgu."
+      [languages.pl.params.homepage.about]
+        title = "O mnie"
+      [languages.pl.params.homepage.leistungen]
+        title = "Nasze usługi"
+      [languages.pl.params.homepage.ablauf]
+        title = "Jak przebiega badanie okulistyczne?"
+      [languages.pl.params.homepage.sprechzeiten]
+        title = "Godziny przyjęć"
+      [languages.pl.params.homepage.kontakt]
+        title = "Kontakt"
+      [languages.pl.params.homepage.anfahrt]
+        title = "Dojazd"
+      [languages.pl.params.homepage.fuertieraerzte]
+        title = "Dla lekarzy kierujących"
+        text = "Specjalistyczna diagnostyka i leczenie odbywają się w ścisłym porozumieniu z kierującą lecznicą. Po zakończeniu leczenia przekazujemy wyniki badań, plan terapii i zalecenia, a pacjent wraca pod opiekę swojego lekarza weterynarii."
+        ctaLabel = "Informacje dla lekarzy weterynarii"
+      [languages.pl.params.homepage.wissenteaser]
+        enable = false
+      [languages.pl.params.nav]
+        moreLabel = "Więcej"
+        primaryLinks = [
+          { title = "Strona główna", url = "/" },
+          { title = "Okulistyka", url = "/augenheilkunde/" },
+          { title = "Operacje oczu", url = "/augenoperationen/" },
+          { title = "O mnie", url = "/ueber-mich/" },
+          { title = "Dla lekarzy", url = "/fuer-tieraerzte/" },
+          { title = "Lokalizacje i kontakt", url = "/standorte-kontakt/" },
+        ]
+        extraLinks = [
+          { title = "Nota prawna", url = "/impressum/" },
+          { title = "Prywatność", url = "/datenschutz/" },
+        ]

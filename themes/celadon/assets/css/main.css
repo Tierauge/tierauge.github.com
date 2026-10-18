@@ -2101,6 +2101,21 @@ p.hours-filler {
   border: 0;
 }
 
+/* Language switcher: a "Mehr"-style dropdown labelled with the language code */
+.nav-more.lang-switcher summary {
+  text-transform: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lang-switcher .nav-more-menu {
+  min-width: 140px;
+}
+
+.lang-switcher .nav-more-menu a[aria-current] {
+  font-weight: 600;
+}
+
 /* Nav "Mehr" dropdown */
 .nav-more {
   position: relative;

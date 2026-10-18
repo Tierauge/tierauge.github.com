@@ -24,3 +24,26 @@ search_no_results:
   other: "Brak wyników"
 search_close_aria:
   other: "Zamknij wyszukiwanie"
+
+cta_appointment:
+  other: "Umów wizytę"
+cta_exams:
+  other: "Poznaj nasze badania"
+call_practice:
+  other: "Zadzwoń do gabinetu"
+emergency_banner:
+  other: "Nagły problem z oczami? Prosimy o wcześniejszy kontakt telefoniczny:"
+action_call:
+  other: "Zadzwoń"
+action_email:
+  other: "E-mail"
+action_location:
+  other: "Lokalizacja"
+trustbar_aria:
+  other: "Kwalifikacje"
+back_link:
+  other: "← Wstecz"
+lang_switcher_aria:
+  other: "Język"
+weekdays:
+  other: "Poniedziałek,Wtorek,Środa,Czwartek,Piątek,Sobota,Niedziela"

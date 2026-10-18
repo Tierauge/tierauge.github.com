@@ -87,8 +87,8 @@
       {{ end }}
     {{ end }}
     <div class="hero-cta-row">
-      {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "#kontakt" "variant" "primary") }}
-      {{ partial "components/cta-button.html" (dict "label" "Untersuchungen kennenlernen" "link" "#leistungen" "variant" "ghost") }}
+      {{ partial "components/cta-button.html" (dict "label" (T "cta_appointment") "link" "#kontakt" "variant" "primary") }}
+      {{ partial "components/cta-button.html" (dict "label" (T "cta_exams") "link" "#leistungen" "variant" "ghost") }}
     </div>
     <div class="hero-links">
       {{ range $profile.links }}

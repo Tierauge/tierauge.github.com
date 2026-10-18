@@ -24,3 +24,26 @@ search_no_results:
   other: "Keine Ergebnisse gefunden"
 search_close_aria:
   other: "Suche schließen"
+
+cta_appointment:
+  other: "Termin anfragen"
+cta_exams:
+  other: "Untersuchungen kennenlernen"
+call_practice:
+  other: "Praxis anrufen"
+emergency_banner:
+  other: "Akute Augenprobleme? Bitte nehmen Sie vorab telefonisch Kontakt auf:"
+action_call:
+  other: "Anrufen"
+action_email:
+  other: "E-Mail"
+action_location:
+  other: "Standort"
+trustbar_aria:
+  other: "Vertrauensmerkmale"
+back_link:
+  other: "← Zurück"
+lang_switcher_aria:
+  other: "Sprache"
+weekdays:
+  other: "Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag,Sonntag"
