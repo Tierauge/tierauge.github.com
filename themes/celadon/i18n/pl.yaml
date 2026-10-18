@@ -24,6 +24,20 @@ search_no_results:
   other: "Brak wyników"
 search_close_aria:
   other: "Zamknij wyszukiwanie"
+map_consent_text:
+  other: "Załadowanie mapy powoduje przesłanie danych (m.in. Twojego adresu IP) do Google."
+map_consent_privacy:
+  other: "Więcej w polityce prywatności."
+map_consent_button:
+  other: "Załaduj mapę"
+map_open_external:
+  other: "Otwórz w Mapach Google"
+notfound_title:
+  other: "Nie znaleziono strony"
+notfound_text:
+  other: "Ta strona nie istnieje (już). Może pomoże wyszukiwarka lub jeden z poniższych linków."
+notfound_home:
+  other: "Do strony głównej"
 
 cta_appointment:
   other: "Umów wizytę"

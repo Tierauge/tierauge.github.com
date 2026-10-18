@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <div class="article-shell notfound">
+    <header class="article-head">
+      <p class="notfound-code" aria-hidden="true">404</p>
+      <h1 class="article-title">{{ T "notfound_title" }}</h1>
+    </header>
+    <p>{{ T "notfound_text" }}</p>
+    <div class="notfound-actions">
+      <a class="cta-button cta-button--primary" href="{{ site.Home.RelPermalink }}">{{ T "notfound_home" }}</a>
+      <button type="button" class="cta-button cta-button--ghost" data-search-open>{{ T "action_search" }}</button>
+    </div>
+    <ul class="notfound-links">
+      {{ range site.Params.nav.primaryLinks }}
+        {{ if ne .url "/" }}<li><a href="{{ .url | relLangURL }}">{{ .title }}</a></li>{{ end }}
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

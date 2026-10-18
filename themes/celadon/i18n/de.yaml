@@ -24,6 +24,20 @@ search_no_results:
   other: "Keine Ergebnisse gefunden"
 search_close_aria:
   other: "Suche schließen"
+map_consent_text:
+  other: "Beim Laden der Karte werden Daten (u. a. Ihre IP-Adresse) an Google übertragen."
+map_consent_privacy:
+  other: "Mehr dazu in der Datenschutzerklärung."
+map_consent_button:
+  other: "Karte laden"
+map_open_external:
+  other: "In Google Maps öffnen"
+notfound_title:
+  other: "Seite nicht gefunden"
+notfound_text:
+  other: "Diese Seite gibt es leider nicht (mehr). Vielleicht hilft die Suche oder einer der folgenden Links weiter."
+notfound_home:
+  other: "Zur Startseite"
 
 cta_appointment:
   other: "Termin anfragen"

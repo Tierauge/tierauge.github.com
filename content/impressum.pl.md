@@ -1,65 +1,100 @@
 ---
 title: "Nota prawna"
-date: 2024-01-01
+date: 2026-10-18
 ---
 
 *Wiążąca prawnie jest wyłącznie [niemiecka wersja](/impressum/).*
 
-Informacje zgodnie z § 5 TMG<br/>
-Dr. med. vet. Sabine Sahr
+## Informacje zgodnie z § 5 DDG
 
-(Strona została utworzona przeze mnie jako osobę prywatną, zatrudnioną w praktyce.)
-
-## Adres gabinetu
-
-Tierärztliche Gemeinschaftspraxis<br/>
-Anette Quandt • Steffi Bracke • Andreas Bracke<br/>
+Dr. med. vet. Sabine Sahr<br/>
+c/o Tierärztliche Gemeinschaftspraxis Quandt und Bracke<br/>
 An den Wurthen 26<br/>
-17489 Greifswald
+17489 Greifswald<br/>
+Niemcy
 
-Telefon:  <a href="tel:+49 3834 504672" target="_blank">+49 3834 504672</a><br/>
-Faks: <a href="tel:+49 3834 504673" target="_blank">+49 3834 504673</a><br/>
-Komórka: 	<a href="tel:+49 172 3006894" target="_blank">+49 172 3006894</a><br/>
+Jestem zatrudniona w Tierärztliche Gemeinschaftspraxis Quandt und Bracke w Greifswaldzie oraz
+pracuję na zasadzie wolnego zawodu w Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann
+w Neubrandenburgu. Tę stronę prowadzę osobiście; nie jest ona ofertą tych gabinetów.
+
+## Kontakt
+
+Telefon: <a href="tel:+493834504672">+49 3834 504672</a><br/>
+Komórka: <a href="tel:+491723006894">+49 172 3006894</a><br/>
+Faks: +49 3834 504673<br/>
 E-mail: <a href="mailto:tierauge@gmail.com">tierauge@gmail.com</a>
 
-## Ustawowy tytuł zawodowy
+## Numer identyfikacyjny VAT
 
-Lekarz weterynarii (Tierarzt)<br/>
-z dodatkową kwalifikacją z okulistyki (Zusatzbezeichnung Augenheilkunde)
+Numer identyfikacyjny VAT zgodnie z § 27a niemieckiej ustawy o podatku od towarów i usług (UStG):
+DE361338367
 
-## Nadanie tytułu zawodowego
+## Tytuł zawodowy i informacje z zakresu prawa zawodowego
 
-Republika Federalna Niemiec<br/>
-Sächsische Landestierärztekammer (Saksońska Krajowa Izba Lekarsko-Weterynaryjna)
+**Ustawowy tytuł zawodowy:** Tierärztin (lekarz weterynarii), nadany w Republice Federalnej
+Niemiec
 
-## Właściwa izba zawodowa
+**Dodatkowa kwalifikacja:** Augenheilkunde (okulistyka), nadana przez Sächsische
+Landestierärztekammer (Saksońska Krajowa Izba Lekarsko-Weterynaryjna)
 
-Landestierärztekammer Mecklenburg-Vorpommern (Krajowa Izba Lekarsko-Weterynaryjna Meklemburgii-Pomorza Przedniego)
+**Właściwa izba zawodowa:** Landestierärztekammer Mecklenburg-Vorpommern (Krajowa Izba
+Lekarsko-Weterynaryjna Meklemburgii-Pomorza Przedniego)
 
-## Przepisy prawa zawodowego
+**Przepisy prawa zawodowego:**
 
-Kodeks zawodowy (Berufsordnung) Landestierärztekammer MV<br/>
-https://www.landestieraerztekammer-mv.de (Satzungen – statuty)
+- Bundes-Tierärzteordnung (BTÄO – federalna ustawa o zawodzie lekarza weterynarii)
+- Heilberufsgesetz Mecklenburg-Vorpommern (HeilBerG M-V – ustawa o zawodach medycznych)
+- Berufsordnung der Landestierärztekammer Mecklenburg-Vorpommern (kodeks zawodowy)
+
+Kodeks zawodowy i inne statuty izby są dostępne na stronie
+[Landestierärztekammer Mecklenburg-Vorpommern](https://www.landestieraerztekammer-mv.de).
+
+## Osoba odpowiedzialna za treść zgodnie z § 18 ust. 2 MStV
+
+Dr. med. vet. Sabine Sahr, adres jak wyżej
 
 ## Odpowiedzialność za treści
 
-Treści tej strony służą Państwa informacji i zostały przygotowane z największą starannością. Nie możemy jednak zagwarantować poprawności, kompletności ani aktualności treści.
+Treści tej strony służą Państwa informacji i zostały przygotowane z największą starannością. Nie
+mogę jednak zagwarantować ich poprawności, kompletności ani aktualności. Nie zastępują one
+badania weterynaryjnego.
 
-Jako usługodawca zgodnie z § 7 Abs.1 TMG ponosimy odpowiedzialność za własne treści na tych stronach na zasadach ogólnych. Zgodnie z §§ 8 bis 10 TMG jako usługodawca nie jesteśmy jednak zobowiązani do monitorowania przekazywanych lub przechowywanych informacji osób trzecich ani do poszukiwania okoliczności wskazujących na działalność niezgodną z prawem.
+Jako usługodawca zgodnie z § 7 ust. 1 DDG ponoszę odpowiedzialność za własne treści na tych
+stronach na zasadach ogólnych. Zgodnie z §§ 8–10 DDG jako usługodawca nie jestem jednak
+zobowiązana do monitorowania przekazywanych lub przechowywanych informacji osób trzecich ani do
+poszukiwania okoliczności wskazujących na działalność niezgodną z prawem.
 
-Nie narusza to obowiązków usunięcia lub zablokowania korzystania z informacji wynikających z przepisów ogólnych. Odpowiedzialność w tym zakresie jest jednak możliwa dopiero od chwili uzyskania wiedzy o konkretnym naruszeniu prawa. Po uzyskaniu informacji o takich naruszeniach niezwłocznie usuniemy te treści.
-Wszystkie treści służą wyłącznie informowaniu osób odwiedzających stronę.
-
-## Informacja o prawach autorskich
-
-Treści i utwory stworzone przez operatorów strony podlegają niemieckiemu prawu autorskiemu. Powielanie, opracowywanie, rozpowszechnianie oraz wszelkie formy wykorzystania wykraczające poza granice prawa autorskiego wymagają pisemnej zgody danego autora lub twórcy. Pobieranie i kopiowanie tej strony jest dozwolone wyłącznie do prywatnego, niekomercyjnego użytku.
-
-O ile treści na tej stronie nie zostały stworzone przez operatora, przestrzegane są prawa autorskie osób trzecich. W szczególności treści osób trzecich są oznaczone jako takie. Jeśli mimo to zauważą Państwo naruszenie praw autorskich, prosimy o stosowną informację. Po uzyskaniu informacji o naruszeniach prawa niezwłocznie usuniemy takie treści.
+Nie narusza to obowiązków usunięcia lub zablokowania korzystania z informacji wynikających
+z przepisów ogólnych. Odpowiedzialność w tym zakresie jest jednak możliwa dopiero od chwili
+uzyskania wiedzy o konkretnym naruszeniu prawa. Po uzyskaniu informacji o takich naruszeniach
+niezwłocznie usunę te treści.
 
 ## Odpowiedzialność za linki
 
-Strona zawiera linki do zewnętrznych stron internetowych osób trzecich, na których treść nie mamy wpływu. Dlatego nie możemy ponosić odpowiedzialności za te cudze treści. Za treść stron, do których prowadzą linki, odpowiada zawsze ich dostawca lub operator. W chwili umieszczenia linków strony te zostały sprawdzone pod kątem ewentualnych naruszeń prawa. Treści niezgodne z prawem nie były wówczas rozpoznawalne.
+Strona zawiera linki do zewnętrznych stron internetowych osób trzecich, na których treść nie mam
+wpływu. Dlatego nie mogę ponosić odpowiedzialności za te cudze treści. Za treść stron, do których
+prowadzą linki, odpowiada zawsze ich dostawca lub operator. W chwili umieszczenia linków strony
+te zostały sprawdzone pod kątem ewentualnych naruszeń prawa. Treści niezgodne z prawem nie były
+wówczas rozpoznawalne.
 
-Stała kontrola treści stron, do których prowadzą linki, nie jest jednak uzasadniona bez konkretnych przesłanek naruszenia prawa. Po uzyskaniu informacji o naruszeniach prawa niezwłocznie usuniemy takie linki.
+Stała kontrola treści stron, do których prowadzą linki, nie jest jednak uzasadniona bez
+konkretnych przesłanek naruszenia prawa. Po uzyskaniu informacji o naruszeniach prawa
+niezwłocznie usunę takie linki.
 
-Dane osobowe, które od Państwa zbieramy, są gromadzone wyłącznie w celu świadczenia usług. Nie są one przekazywane osobom trzecim.
+## Prawa autorskie
+
+Treści i utwory stworzone przeze mnie na tych stronach, w szczególności teksty, zdjęcia i grafiki,
+podlegają niemieckiemu prawu autorskiemu. Powielanie, opracowywanie, rozpowszechnianie oraz
+wszelkie formy wykorzystania wykraczające poza granice prawa autorskiego wymagają mojej pisemnej
+zgody. Pobieranie i kopiowanie tej strony jest dozwolone wyłącznie do prywatnego, niekomercyjnego
+użytku.
+
+O ile treści na tej stronie nie zostały stworzone przeze mnie, przestrzegane są prawa autorskie
+osób trzecich, a treści osób trzecich są oznaczone jako takie. Jeśli mimo to zauważą Państwo
+naruszenie praw autorskich, proszę o stosowną informację. Po uzyskaniu informacji o naruszeniach
+prawa niezwłocznie usunę takie treści.
+
+## Ochrona danych
+
+Informacje o przetwarzaniu danych osobowych znajdują się w
+[informacji o ochronie danych](/pl/datenschutz/).

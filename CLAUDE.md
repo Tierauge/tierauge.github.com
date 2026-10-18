@@ -123,6 +123,22 @@ Known divergences from upstream:
   light `--color-muted` alpha is `0.7`, not `0.65`; `.location-cta-label` uses
   `--color-primary`; dark `.trustbar-badge` uses `--color-text`; and the filter `.count`
   `opacity` was removed. Re-check contrast in **both** themes after any colour change.
+- **Fonts are self-hosted** — Manrope (variable, weights 400–700) lives in
+  `static/fonts/` (`manrope-latin.woff2`, `manrope-latin-ext.woff2` for Polish, plus the OFL
+  licence), declared via `@font-face` at the top of `assets/css/main.css` and preloaded in
+  `_partials/head.html`. Upstream loads it from `fonts.googleapis.com`; that was removed for
+  GDPR (no visitor IPs to Google). Don't reintroduce any Google Fonts `<link>`.
+- **Google Maps is two-click** — `partials/home/map.html` (homepage + `standorte-kontakt`)
+  renders a `.map-consent` placeholder with a "Karte laden" button and a plain Google Maps link;
+  the iframe is only created by the partial's inline script after the click (one click loads all
+  maps in that section). Nothing is remembered between pages. i18n keys `map_consent_*`,
+  `map_open_external`. Don't put the iframe back into the static markup.
+- **`_partials/footer.html`** — the upstream "Bereitgestellt mit Hugo & Celadon" credit was
+  removed; the footer copyright line is just `© <year> <site title>` (the `powered_by` i18n key
+  is now unused).
+- **`layouts/404.html`** — themed "page not found" page with home/search buttons and the
+  primary nav links (i18n `notfound_*`; `head.html` overrides the `<title>` for `.Kind "404"`).
+  GitHub Pages serves the root `/404.html` (German) for every missing URL.
 - **`assets/css/main.css`** — a few mobile-only fixes layered on top of the upstream styles,
   tuned for this site's actual content (not generic upstream behavior):
   - `#scroll-top` has a themed border — it and `.mobile-action-bar` both use

@@ -24,6 +24,20 @@ search_no_results:
   other: "No results found"
 search_close_aria:
   other: "Close search"
+map_consent_text:
+  other: "Loading the map transfers data (including your IP address) to Google."
+map_consent_privacy:
+  other: "More in the privacy policy."
+map_consent_button:
+  other: "Load map"
+map_open_external:
+  other: "Open in Google Maps"
+notfound_title:
+  other: "Page not found"
+notfound_text:
+  other: "Sorry, this page does not exist (any more). The search or one of the links below may help."
+notfound_home:
+  other: "Go to homepage"
 
 cta_appointment:
   other: "Request an appointment"

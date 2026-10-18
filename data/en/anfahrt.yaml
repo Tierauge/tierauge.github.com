@@ -1,7 +1,7 @@
 embeds:
   - label: "Tierarztpraxis Quandt und Bracke, Greifswald"
     city: "Greifswald"
-    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2339.6688759002195!2d13.394572315464378!3d54.09734598014335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ab74e9eff3b4bb%3A0xb8a25b8b37328567!2sTier%C3%A4rztliche%20Gemeinschaftspraxis%20Anette%20Quandt%2C%20Steffi%20Bracke%20%2C%20Andreas%20Bracke!5e0!3m2!1sde!2sde!4v1633957449165!5m2!1sde!2sde"
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2339.6688759002195!2d13.394572315464378!3d54.09734598014335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ab74e9eff3b4bb%3A0xb8a25b8b37328567!2sTier%C3%A4rztliche%20Gemeinschaftspraxis%20Anette%20Quandt%2C%20Steffi%20Bracke%20%2C%20Andreas%20Bracke!5e0!3m2!1sen!2sde!4v1633957449165!5m2!1sen!2sde"
   - label: "Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann, Neubrandenburg"
     city: "Neubrandenburg"
-    src: "https://www.google.com/maps?q=Tierarztpraxis%20f%C3%BCr%20Kleintiere%20Dipl.-Vet.-Med.%20Andrea%20Lehmann%2C%20Fritz-Reuter-Stra%C3%9Fe%207%2C%2017033%20Neubrandenburg&output=embed"
+    src: "https://www.google.com/maps?q=Tierarztpraxis%20f%C3%BCr%20Kleintiere%20Dipl.-Vet.-Med.%20Andrea%20Lehmann%2C%20Fritz-Reuter-Stra%C3%9Fe%207%2C%2017033%20Neubrandenburg&output=embed&hl=en"

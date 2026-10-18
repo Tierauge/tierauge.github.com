@@ -27,5 +27,4 @@ locations:
       - { label: "Phone", number: "+49 395 5442604" }
 
 social:
-  - { label: "Facebook", url: "https://www.facebook.com/TieraugenDoc" }
-  - { label: "Twitter", url: "https://twitter.com/TieraugenDoc" }
+  - { label: "Facebook", url: "https://www.facebook.com/tieraugendoc" }

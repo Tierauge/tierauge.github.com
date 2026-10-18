@@ -27,7 +27,7 @@ Hunde mit einem SCCED zeigen typischerweise ein gerötetes, tränendes Auge, das
 Die Diagnose SCCED wird durch die Kombination aus Alter des Patienten, Verlauf der Erkrankung und das typische Erscheinungsbild gestellt. Charakteristisch sind die losen, umgeschlagenen  Epithelränder am Defektrand. 
 
 
-{{< figure src="/images/scced2.png" alt="TODO" caption="**Abb. 1 :** Foto eines Auges mit indolentem Ulcus. Die Hornhaut hat viele rote Blutgefäße gebildet, die aber die Heilung nicht erreichen können. In diesem Bereich ist viel loses Epithel zu sehen, das sich hier regelrecht türmt." >}}
+{{< figure src="/images/scced2.png" alt="Hundeauge mit indolentem Hornhautgeschwür: getrübte, bläulich-rötliche Hornhaut mit eingesprossenen Blutgefäßen" caption="**Abb. 1 :** Foto eines Auges mit indolentem Ulcus. Die Hornhaut hat viele rote Blutgefäße gebildet, die aber die Heilung nicht erreichen können. In diesem Bereich ist viel loses Epithel zu sehen, das sich hier regelrecht türmt." >}}
 
 ## Therapie – Abrasio Corneae
 
@@ -40,14 +40,14 @@ Wenige Tage nach der Behandlung sollte das Auge kontrolliert werden. Komplikatio
 
 In sehr seltenen Fällen gelingt auch mit der Abrasio die Heilung nicht. Bei diesen Patienten ist dann  ein chirurgischer Eingriff in Vollnarkose notwendig. Dabei wird das geschädigte, nicht heilende Hornhautareal entfernt (Keratektomie).
 
-{{< figure src="/images/ctd.png" alt="TODO" caption="**Abb. 2 :** Cotton Tip Debridement CTD. Das lose Epithel wird im ersten Schritt mit einem sterilem Wattestab entfernt." >}}
+{{< figure src="/images/ctd.png" alt="Zeichnung: Ein steriler Wattestab entfernt loses Epithel am Rand eines Hornhautdefekts" caption="**Abb. 2 :** Cotton Tip Debridement CTD. Das lose Epithel wird im ersten Schritt mit einem sterilem Wattestab entfernt." >}}
 
-{{< figure src="/images/dbd.png" alt="TODO" caption="**Abb. 3 :** Diamond Burr Debridement. Mit einer Diamantfräse werden die Ränder geglättet und die hyaline Zone entfernt. Die Prozedur erfolgt unter Lokalanästhesie und ist damit schnell und schmerzfrei." >}}
+{{< figure src="/images/dbd.png" alt="Zeichnung: Eine Diamantfräse glättet die Ränder eines Hornhautdefekts" caption="**Abb. 3 :** Diamond Burr Debridement. Mit einer Diamantfräse werden die Ränder geglättet und die hyaline Zone entfernt. Die Prozedur erfolgt unter Lokalanästhesie und ist damit schnell und schmerzfrei." >}}
 
-{{< figure src="/images/gkt.png" alt="TODO" caption="**Abb. 4 :** Gitterkeratotomie. Bei dieser Methode wird mit einer feinen Kanüle ein Gitter in die Hornhaut geritzt. Diese Prozedur ermöglicht ebenfalls die Heilung, ist seit Einführung des Diamond Burr Debridements aber nur sehr selten nötig. Sie kann mitunter ergänzend sinnvoll sein. Nachteilig ist, dass die Gitternetzlinien als feine Linien dauerhaft sichtbar bleiben können." >}}
+{{< figure src="/images/gkt.png" alt="Zeichnung: Mit einer feinen Kanüle wird ein Gittermuster in die Hornhaut geritzt" caption="**Abb. 4 :** Gitterkeratotomie. Bei dieser Methode wird mit einer feinen Kanüle ein Gitter in die Hornhaut geritzt. Diese Prozedur ermöglicht ebenfalls die Heilung, ist seit Einführung des Diamond Burr Debridements aber nur sehr selten nötig. Sie kann mitunter ergänzend sinnvoll sein. Nachteilig ist, dass die Gitternetzlinien als feine Linien dauerhaft sichtbar bleiben können." >}}
 
 ## Prognose
 
 Eine Abheilung der Hornhaut kann mit entsprechender Therapie in jedem Fall erreicht werden. Mitunter ist der Verlauf langwierig. Nach dem Abheilen ist das betroffene Auge voll funktionsfähig und in der Regel narbenfrei. Bei manchen Patienten bilden sich während der Heilung zahlreiche Blutgefäße in der Hornhaut (besonders bei Französischen Bulldoggen und Boxern). In diesen Fällen kann eine sichtbare Narbe bleiben. Nicht selten (in etwa 84%) tritt das SCCED im Laufe der nächsten 24 Monate auch auf dem anderen Auge auf.
 
-{{< figure src="/images/berschie-end.jpg" alt="TODO" caption="**Abb. 4 :** Diese Hornhaut zeigt eine überschießende Heilung. Es haben sich viele Blutgefäße gebildet, die Hornhaut erscheint blasig reaktiv. Diese überschießende Heilungsreaktion tritt vor allem bei Französischen Bulldoggen und Boxern nach der Behandlung auf. Sie kann zu einer gewissen Narbenbildung nach Abheilung führen." >}}
+{{< figure src="/images/berschie-end.jpg" alt="Hundeauge nach der Behandlung: gerötete Bindehaut, Hornhaut mit vielen Blutgefäßen und grüner Farbstoffanfärbung" caption="**Abb. 5 :** Diese Hornhaut zeigt eine überschießende Heilung. Es haben sich viele Blutgefäße gebildet, die Hornhaut erscheint blasig reaktiv. Diese überschießende Heilungsreaktion tritt vor allem bei Französischen Bulldoggen und Boxern nach der Behandlung auf. Sie kann zu einer gewissen Narbenbildung nach Abheilung führen." >}}

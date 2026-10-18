@@ -1,85 +1,98 @@
 ---
 title: "Legal notice"
-date: 2024-01-01
+date: 2026-10-18
 ---
 
 *Only the [German version](/impressum/) is legally binding.*
 
-Information pursuant to § 5 TMG<br/>
-Dr. med. vet. Sabine Sahr
+## Information pursuant to § 5 DDG
 
-(This website was created by me as a private individual in employment.)
-
-## Practice address
-
-Tierärztliche Gemeinschaftspraxis<br/>
-Anette Quandt • Steffi Bracke • Andreas Bracke<br/>
+Dr. med. vet. Sabine Sahr<br/>
+c/o Tierärztliche Gemeinschaftspraxis Quandt und Bracke<br/>
 An den Wurthen 26<br/>
 17489 Greifswald<br/>
 Germany
 
-Phone:  <a href="tel:+49 3834 504672" target="_blank">+49 3834 504672</a><br/>
-Fax: <a href="tel:+49 3834 504673" target="_blank">+49 3834 504673</a><br/>
-Mobile: 	<a href="tel:+49 172 3006894" target="_blank">+49 172 3006894</a><br/>
+I am employed at the Tierärztliche Gemeinschaftspraxis Quandt und Bracke in Greifswald and work
+freelance at the Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann in Neubrandenburg.
+I run this website personally; it is not a service of these practices.
+
+## Contact
+
+Phone: <a href="tel:+493834504672">+49 3834 504672</a><br/>
+Mobile: <a href="tel:+491723006894">+49 172 3006894</a><br/>
+Fax: +49 3834 504673<br/>
 Email: <a href="mailto:tierauge@gmail.com">tierauge@gmail.com</a>
 
-## Statutory professional title
+## VAT ID
 
-Tierarzt (veterinarian)<br/>
-with additional qualification in ophthalmology (Zusatzbezeichnung Augenheilkunde)
+VAT identification number pursuant to § 27a of the German VAT Act (UStG): DE361338367
 
-## Professional title conferred by
+## Professional title and regulatory information
 
-Federal Republic of Germany<br/>
-Sächsische Landestierärztekammer (Saxon State Veterinary Chamber)
+**Statutory professional title:** Tierärztin (veterinarian), conferred in the Federal Republic of
+Germany
 
-## Competent chamber
+**Additional qualification:** Augenheilkunde (ophthalmology), conferred by the Sächsische
+Landestierärztekammer (Saxon State Veterinary Chamber)
 
-Landestierärztekammer Mecklenburg-Vorpommern (Veterinary Chamber of Mecklenburg-Western Pomerania)
+**Competent chamber:** Landestierärztekammer Mecklenburg-Vorpommern (Veterinary Chamber of
+Mecklenburg-Western Pomerania)
 
-## Professional regulations
+**Professional regulations:**
 
-Berufsordnung der Landestierärztekammer MV (professional code of the Veterinary Chamber MV)<br/>
-https://www.landestieraerztekammer-mv.de (Satzungen)
+- Bundes-Tierärzteordnung (BTÄO – Federal Veterinary Code)
+- Heilberufsgesetz Mecklenburg-Vorpommern (HeilBerG M-V – Health Professions Act)
+- Berufsordnung der Landestierärztekammer Mecklenburg-Vorpommern (professional code)
+
+The professional code and other statutes of the chamber are available on the website of the
+[Landestierärztekammer Mecklenburg-Vorpommern](https://www.landestieraerztekammer-mv.de).
+
+## Responsible for content pursuant to § 18(2) MStV
+
+Dr. med. vet. Sabine Sahr, address as above
 
 ## Liability for content
 
-The content of this website is provided for your information and has been compiled with the greatest
-care. However, we cannot guarantee that the content is correct, complete or up to date.
+The content of this website is provided for your information and has been compiled with the
+greatest care. However, I cannot guarantee that it is correct, complete or up to date. It does
+not replace a veterinary examination.
 
-As a service provider, we are responsible for our own content on these pages under general law in
-accordance with § 7 (1) TMG. According to §§ 8 to 10 TMG, however, we are not obliged as a service
-provider to monitor transmitted or stored third-party information or to investigate circumstances that
-indicate illegal activity.
+As a service provider, I am responsible for my own content on these pages under general law in
+accordance with § 7(1) DDG. According to §§ 8 to 10 DDG, however, I am not obliged as a service
+provider to monitor transmitted or stored third-party information or to investigate
+circumstances that indicate illegal activity.
 
-Obligations to remove or block the use of information under general law remain unaffected. Liability
-in this respect is, however, only possible from the time we become aware of a specific infringement. As
-soon as we become aware of such infringements, we will remove the content in question immediately.
-All content is provided solely for the information of visitors to the website.
-
-## Copyright notice
-
-The content and works created by the site operators on these pages are subject to German copyright law.
-Reproduction, editing, distribution and any kind of use beyond the limits of copyright law require the
-written consent of the respective author or creator. Downloads and copies of this site are permitted for
-private, non-commercial use only.
-
-Insofar as the content on this site was not created by the operator, the copyrights of third parties are
-respected. In particular, third-party content is marked as such. Should you nevertheless become aware of
-a copyright infringement, please let us know. As soon as we become aware of infringements, we will remove
-such content immediately.
+Obligations to remove or block the use of information under general law remain unaffected.
+Liability in this respect is, however, only possible from the time I become aware of a specific
+infringement. As soon as I become aware of such infringements, I will remove the content in
+question immediately.
 
 ## Liability for links
 
-This website contains links to external third-party websites over whose content we have no influence.
-We therefore cannot accept any liability for this third-party content. The respective provider or
-operator of the linked pages is always responsible for their content. The linked pages were checked for
-possible legal violations at the time of linking. No illegal content was apparent at the time of
-linking.
+This website contains links to external third-party websites over whose content I have no
+influence. I therefore cannot accept any liability for this third-party content. The respective
+provider or operator of the linked pages is always responsible for their content. The linked
+pages were checked for possible legal violations at the time of linking. No illegal content was
+apparent at the time of linking.
 
-However, permanent monitoring of the content of the linked pages is not reasonable without concrete
-evidence of an infringement. As soon as we become aware of infringements, we will remove such links
-immediately.
+However, permanent monitoring of the content of the linked pages is not reasonable without
+concrete evidence of an infringement. As soon as I become aware of infringements, I will remove
+such links immediately.
 
-The personal data we collect from you is collected solely for the purpose of providing our services. It
-is not passed on to third parties.
+## Copyright
+
+The content and works I have created on these pages, in particular texts, photos and graphics,
+are subject to German copyright law. Reproduction, editing, distribution and any kind of use
+beyond the limits of copyright law require my written consent. Downloads and copies of this site
+are permitted for private, non-commercial use only.
+
+Insofar as content on this site was not created by me, the copyrights of third parties are
+respected and third-party content is marked as such. Should you nevertheless become aware of a
+copyright infringement, please let me know. As soon as I become aware of infringements, I will
+remove such content immediately.
+
+## Privacy
+
+Information on the processing of personal data can be found in the
+[privacy policy](/en/datenschutz/).

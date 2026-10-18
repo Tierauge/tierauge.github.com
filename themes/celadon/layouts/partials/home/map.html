@@ -13,10 +13,34 @@
     {{ range $data.embeds }}
       <div class="map-card">
         {{ with .city }}<h3>{{ . }}</h3>{{ end }}
-        <div class="map-embed">
-          <iframe src="{{ .src | safeURL }}" title="{{ .label }}" loading="lazy" allowfullscreen></iframe>
+        {{/* Two-click: the Google iframe is only created after consent, so no data
+             reaches Google on page load. */}}
+        <div class="map-embed" data-map-src="{{ .src }}" data-map-title="{{ .label }}">
+          <div class="map-consent">
+            <p>{{ T "map_consent_text" }} <a href="{{ "datenschutz/" | relLangURL }}">{{ T "map_consent_privacy" }}</a></p>
+            <button type="button" class="cta-button cta-button--primary" data-map-load>{{ T "map_consent_button" }}</button>
+            <a class="map-external" href="https://www.google.com/maps/search/?api=1&amp;query={{ .label | urlquery }}" target="_blank" rel="noopener">{{ T "map_open_external" }} ↗</a>
+          </div>
         </div>
       </div>
     {{ end }}
   </div>
 </section>
+<script>
+  (function () {
+    const section = document.getElementById("{{ $section }}");
+    section.querySelectorAll("[data-map-load]").forEach((button) => {
+      button.addEventListener("click", () => {
+        // One consent loads every map in this section.
+        section.querySelectorAll("[data-map-src]").forEach((embed) => {
+          const iframe = document.createElement("iframe");
+          iframe.src = embed.dataset.mapSrc;
+          iframe.title = embed.dataset.mapTitle;
+          iframe.allowFullscreen = true;
+          embed.replaceChildren(iframe);
+        });
+        section.querySelector("iframe")?.focus();
+      });
+    });
+  })();
+</script>
