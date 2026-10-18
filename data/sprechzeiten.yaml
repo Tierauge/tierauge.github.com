@@ -1,7 +1,6 @@
 locations:
   - name: "Tierarztpraxis Quandt und Bracke"
     city: "Greifswald"
-    note: "Verkürzt wegen Elternzeit"
     rows:
       - { day: "Montag" }
       - { day: "Dienstag" }
