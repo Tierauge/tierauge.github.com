@@ -1,5 +1,4 @@
 theme = "celadon"
-publishDir = "docs"  # GitHub Pages serves master:/docs
 baseURL = "https://tieraugen.doctor/"
 defaultContentLanguage = "de"
 defaultContentLanguageInSubdir = false  # keep German URLs (and Jekyll aliases) at the root

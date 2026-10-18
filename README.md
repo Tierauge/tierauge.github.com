@@ -2,6 +2,6 @@
 
 Hugo-Seite für https://tieraugen.doctor (Theme: `themes/celadon`, vendored).
 
-- `make preview` – lokaler Server
-- `make build` – baut nach `docs/` (GitHub Pages)
-- `make publish` – bauen, committen, pushen
+- `hugo server` – lokaler Server
+- Push auf `master` – GitHub Actions baut die Seite und legt sie auf den Branch `gh-pages`
+  (dessen History wird bei jedem Deploy überschrieben)

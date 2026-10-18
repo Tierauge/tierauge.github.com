@@ -44,8 +44,12 @@ hugo server
 hugo --minify --destination /tmp/out
 ```
 
-Deployment: GitHub Pages serves `master:/docs`, so `hugo.toml` sets `publishDir = "docs"` and
-`make build` / `make publish` rebuild it (`static/CNAME` and `static/.nojekyll` are copied along).
+Deployment: every push to `master` runs `.github/workflows/deploy.yml`, which builds with a
+pinned Hugo release and force-pushes `public/` as a single orphan commit to `gh-pages`. GitHub
+Pages serves `gh-pages:/`, and that branch's history is overwritten on every deploy, so never
+commit to it by hand (`static/CNAME` and `static/.nojekyll` are copied along). Build output is
+not committed to `master` (`public/` is gitignored). Bump the Hugo version in the workflow when
+the local Hugo moves ahead.
 The site replaced an older Jekyll site; its URLs (`/blog/<Name>.html`, `/blog.html`,
 `/story.html`, `/verschiedenes.html`, `/impressum.html`) live on as `aliases:` in front matter —
 keep them when renaming or moving content.
