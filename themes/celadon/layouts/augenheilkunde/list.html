@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="article-shell service-shell">
+    <header class="article-head">
+      <h1 class="article-title">{{ .Title }}</h1>
+    </header>
+    <article class="article-content markdown-body">
+      {{ .Content }}
+    </article>
+    <div class="augenheilkunde-grid">
+      {{ range .Pages }}
+        <a href="{{ .RelPermalink }}" class="augenheilkunde-card">
+          <h3>{{ .Title }}</h3>
+          {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+        </a>
+      {{ end }}
+    </div>
+    <div class="service-cta">
+      {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "/standorte-kontakt/" "variant" "primary") }}
+    </div>
+  </div>
+{{ end }}

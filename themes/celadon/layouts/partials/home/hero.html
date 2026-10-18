@@ -1,0 +1,106 @@
+{{ $lang := site.Language.Lang }}
+{{ $defaultLang := hugo.Sites.Default.Language.Lang }}
+{{ $profile := index (index hugo.Data $lang) "profile" }}
+{{ if not $profile }}
+  {{ $profile = index (index hugo.Data $defaultLang) "profile" }}
+{{ end }}
+{{ if not $profile }}
+  {{/* Single-language sites: data/profile.yaml lives directly under data/, not data/<lang>/ */}}
+  {{ $profile = index hugo.Data "profile" }}
+{{ end }}
+{{ $profileLayout := default "modern" $profile.profile_layout | lower }}
+<header class="hero hero--{{ $profileLayout }} section-block">
+  {{ $profileImage := strings.TrimPrefix "/" $profile.profile_image }}
+  {{ $profileImageStyleRaw := default "circle" $profile.profile_image_style | lower }}
+  {{ $profileImageStyle := cond (eq $profileImageStyleRaw "original") "rectangle" $profileImageStyleRaw }}
+  <div class="hero-media hero-media--{{ $profileImageStyle }}">
+    {{ if eq $profileImageStyle "circle" }}
+      {{ partial "motifs/iris-circle.html" (dict "size" "240px" "opacity" 0.85) }}
+    {{ end }}
+    <img src="{{ $profileImage | relURL }}" alt="{{ $profile.name }} portrait" loading="lazy">
+  </div>
+  <div id="{{ or .Section `hero` }}" class="hero-copy hero-intro">
+    {{ $name := partial "utils/enrich-text.html" $profile.name | markdownify }}
+    <h1>{{ $name | safeHTML }}</h1>
+    <p class="meta">
+      {{ partial "utils/enrich-text.html" $profile.title | markdownify | safeHTML }}<br>
+      <span class="meta-affiliation">{{ partial "utils/enrich-text.html" $profile.affiliation | markdownify | safeHTML }}</span>
+    </p>
+  </div>
+  <div class="hero-copy hero-body">
+    {{ with $profile.subline }}<p class="hero-subline">{{ . }}</p>{{ end }}
+    <div class="summary">{{ partial "utils/enrich-text.html" $profile.summary | markdownify | safeHTML }}</div>
+    {{ $hasKeywordSections := false }}
+    {{ with $profile.keyword_sections }}
+      {{ $hasKeywordSections = true }}
+      <div class="keyword-sections">
+        {{ range . }}
+          <div class="keyword-section">
+            {{ with .title }}
+              <div class="highlights-title">{{ . }}</div>
+            {{ end }}
+            <div class="keyword-groups">
+              {{ range .rows }}
+                <div class="keyword-row">
+                  {{ range . }}
+                    <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+    {{ $listItems := or $profile.list $profile.highlights }}
+    {{ if $listItems }}
+      {{ with $profile.highlights_title }}
+        <div class="highlights-title">{{ . }}</div>
+      {{ end }}
+      <ul class="highlight-list">
+        {{ range $listItems }}
+          <li>{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      {{ if not $hasKeywordSections }}
+        {{ with $profile.highlights_title }}
+          <div class="highlights-title">{{ . }}</div>
+        {{ end }}
+        <div class="keyword-groups">
+          {{ with $profile.keyword_rows }}
+            {{ range . }}
+              <div class="keyword-row">
+                {{ range . }}
+                  <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+                {{ end }}
+              </div>
+            {{ end }}
+          {{ else }}
+            <div class="keyword-row">
+              {{ range $profile.keywords }}
+                <span class="keyword-badge">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</span>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="hero-cta-row">
+      {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "#kontakt" "variant" "primary") }}
+      {{ partial "components/cta-button.html" (dict "label" "Untersuchungen kennenlernen" "link" "#leistungen" "variant" "ghost") }}
+    </div>
+    <div class="hero-links">
+      {{ range $profile.links }}
+        {{ $link := or .link .url }}
+        {{ if and (hasPrefix $link "/") (not (hasPrefix $link "//")) }}
+          <a href="{{ $link | relLangURL }}" class="text-link">{{ .label }}</a>
+        {{ else }}
+          <a href="{{ $link | safeURL }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "motifs/iris-circle.html" (dict "size" "120px" "opacity" 0.4 "class" "iris-motif--wave") }}
+  {{ partial "motifs/wave-divider.html" (dict "variant" "fill" "height" 56) }}
+</header>

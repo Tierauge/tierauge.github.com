@@ -1,0 +1,82 @@
+{{/* JSON-LD: Person, Organisation (VeterinaryCare) mit Standorten, plus Article auf Wissensartikeln. */}}
+{{ $kontakt := index hugo.Data "kontakt" }}
+{{ $profile := index hugo.Data "profile" }}
+{{ $orgID := printf "%s#organization" site.BaseURL }}
+{{ $personID := printf "%s#person" site.BaseURL }}
+
+{{ $locations := slice }}
+{{ $contactPoints := slice }}
+{{ with $kontakt }}
+  {{ range .locations }}
+    {{ $city := .city }}
+    {{ $locations = $locations | append (dict
+        "@type" "Place"
+        "name" .name
+        "address" (dict
+          "@type" "PostalAddress"
+          "streetAddress" .address
+          "addressLocality" $city
+          "addressCountry" "DE"
+        )
+      )
+    }}
+    {{ range .phones }}
+      {{ $contactPoints = $contactPoints | append (dict
+          "@type" "ContactPoint"
+          "telephone" .number
+          "contactType" "customer service"
+          "areaServed" $city
+          "availableLanguage" "German"
+        )
+      }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $organization := dict
+  "@context" "https://schema.org"
+  "@type" "VeterinaryCare"
+  "@id" $orgID
+  "name" site.Title
+  "url" site.BaseURL
+  "description" site.Params.description
+  "image" (absURL "images/brand/logo.png")
+  "location" $locations
+  "contactPoint" $contactPoints
+}}
+{{ with $kontakt.author.email }}{{ $organization = merge $organization (dict "email" .) }}{{ end }}
+{{ with $kontakt.social }}
+  {{ $sameAs := slice }}
+  {{ range . }}{{ $sameAs = $sameAs | append .url }}{{ end }}
+  {{ $organization = merge $organization (dict "sameAs" $sameAs) }}
+{{ end }}
+
+{{ $person := dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "@id" $personID
+  "name" $profile.name
+  "jobTitle" $profile.title
+  "worksFor" (dict "@id" $orgID)
+  "memberOf" (dict "@type" "Organization" "name" "Dortmunder Kreis (DOK)" "url" "https://www.dok-vet.de")
+}}
+{{ with $profile.profile_image }}{{ $person = merge $person (dict "image" (absURL .)) }}{{ end }}
+{{ with $kontakt.author.email }}{{ $person = merge $person (dict "email" .) }}{{ end }}
+
+<script type="application/ld+json">{{ $organization | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+
+{{ if in (slice "wissensbank" "patientengeschichten" "vortraege") .Section }}
+  {{ $article := dict
+    "@context" "https://schema.org"
+    "@type" "Article"
+    "headline" .Title
+    "description" (.Description | default site.Params.description)
+    "datePublished" (.Date.Format "2006-01-02")
+    "author" (dict "@id" $personID)
+    "publisher" (dict "@id" $orgID)
+    "mainEntityOfPage" .Permalink
+  }}
+  {{ with .Params.image }}{{ $article = merge $article (dict "image" (absURL (strings.TrimPrefix "/" .))) }}{{ end }}
+  <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{ end }}

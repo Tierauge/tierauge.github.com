@@ -1,0 +1,43 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) $config.title }}
+{{ $items := .Data }}
+
+{{ if not $items }}
+  {{ $items = slice }}
+{{ end }}
+
+{{ if and (reflect.IsMap $items) (isset $items "sparks") }}
+  {{ $items = index $items "sparks" }}
+{{ end }}
+
+<section id="{{ $section }}" class="writing-grid section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div><h2>{{ $title }}</h2></div>
+  </div>
+  
+  <div class="card-grid {{ if eq $section "misc" }}misc-grid{{ end }}">
+    {{ range $items }}
+      {{ $dest := or .link .url }}
+      
+      {{ $image := strings.TrimPrefix "/" .image }}
+
+      {{ if or (hasPrefix $dest "http") (hasPrefix $dest "//") }}
+        
+        <a href="{{ $dest | safeURL }}" target="_blank" rel="noopener" class="category-card" style="background-image: url('{{ $image | relURL }}')">
+      
+      {{ else }}
+        
+        <a href="{{ $dest | relLangURL }}" class="category-card" style="background-image: url('{{ $image | relURL }}')">
+      
+      {{ end }}
+
+        <div class="overlay">
+          <h3>{{ or .title .name }}</h3>
+          <p>{{ .description }}</p>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+</section>

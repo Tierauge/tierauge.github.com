@@ -1,0 +1,26 @@
+nav_home:
+  other: "Startseite"
+theme_toggle_aria:
+  other: "Farbschema umschalten"
+nav_toggle_aria:
+  other: "Menü öffnen"
+scroll_top_aria:
+  other: "Nach oben"
+copy_code_aria:
+  other: "Code kopieren"
+show_more:
+  other: "Mehr anzeigen ↓"
+show_less:
+  other: "Weniger anzeigen ↑"
+coauthors_label:
+  other: "Mitautoren"
+powered_by:
+  other: "Bereitgestellt mit"
+search_aria:
+  other: "Suche öffnen"
+search_placeholder:
+  other: "Suchen…"
+search_no_results:
+  other: "Keine Ergebnisse gefunden"
+search_close_aria:
+  other: "Suche schließen"

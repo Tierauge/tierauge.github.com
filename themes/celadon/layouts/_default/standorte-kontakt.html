@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <div class="article-shell standorte-kontakt-shell">
+    <header class="article-head">
+      <h1 class="article-title">{{ .Title }}</h1>
+    </header>
+    <article class="article-content markdown-body">
+      {{ .Content }}
+    </article>
+
+    {{ partial "home/hours.html" (dict
+        "Page" .
+        "Config" (dict "title" "Sprechzeiten")
+        "Data" (index hugo.Data "sprechzeiten")
+        "Section" "sprechzeiten") }}
+
+    {{ partial "home/contact.html" (dict
+        "Page" .
+        "Config" (dict "title" "Kontakt")
+        "Data" (index hugo.Data "kontakt")
+        "Section" "kontakt") }}
+
+    {{ partial "home/map.html" (dict
+        "Page" .
+        "Config" (dict "title" "Anfahrt")
+        "Data" (index hugo.Data "anfahrt")
+        "Section" "anfahrt") }}
+  </div>
+{{ end }}

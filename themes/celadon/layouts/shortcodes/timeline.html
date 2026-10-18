@@ -1,0 +1,14 @@
+{{/* Usage: {{< timeline data="lebenslauf" >}} — reads data/<lang>/<data>.yaml with the same
+     3-tier fallback as home/hero.html, falling back to the flat data/<data>.yaml used by
+     single-language sites. */}}
+{{ $dataKey := .Get "data" | default "lebenslauf" }}
+{{ $lang := site.Language.Lang }}
+{{ $defaultLang := hugo.Sites.Default.Language.Lang }}
+{{ $items := index (index hugo.Data $lang) $dataKey }}
+{{ if not $items }}
+  {{ $items = index (index hugo.Data $defaultLang) $dataKey }}
+{{ end }}
+{{ if not $items }}
+  {{ $items = index hugo.Data $dataKey }}
+{{ end }}
+{{ partial "components/timeline.html" (dict "Items" $items) }}

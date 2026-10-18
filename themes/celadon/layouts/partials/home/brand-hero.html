@@ -1,0 +1,15 @@
+{{ $logo := strings.TrimPrefix "/" .Data.logo }}
+<header class="hero hero--classic section-block">
+  <div class="hero-media hero-media--rectangle">
+    <img src="{{ $logo | relURL }}" alt="{{ .Data.name }} Logo" loading="lazy">
+  </div>
+  <div id="{{ or .Section `praxis` }}" class="hero-copy hero-intro">
+    <h1>{{ .Data.name }}</h1>
+    {{ with .Data.tagline }}<p class="meta">{{ . }}</p>{{ end }}
+  </div>
+  <div class="hero-copy hero-body">
+    <div class="summary">{{ partial "utils/enrich-text.html" .Data.text | markdownify | safeHTML }}</div>
+  </div>
+  {{ partial "motifs/iris-circle.html" (dict "size" "120px" "opacity" 0.4 "class" "iris-motif--wave") }}
+  {{ partial "motifs/wave-divider.html" (dict "variant" "fill" "height" 56) }}
+</header>

@@ -1,0 +1,17 @@
+{{/* Notfallhinweis-Banner — nutzt die erste hinterlegte Telefonnummer aus data/kontakt.yaml. */}}
+{{ $kontakt := index hugo.Data "kontakt" }}
+{{ $phone := "" }}
+{{ with $kontakt }}
+  {{ with .locations }}
+    {{ with (index . 0).phones }}
+      {{ with index . 0 }}
+        {{ $phone = .number }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if $phone }}
+  <div class="emergency-banner">
+    <p>Akute Augenprobleme? Bitte nehmen Sie vorab telefonisch Kontakt auf: <a href="tel:{{ replace $phone " " "" }}">{{ $phone }}</a></p>
+  </div>
+{{ end }}

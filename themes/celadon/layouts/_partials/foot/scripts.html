@@ -1,0 +1,75 @@
+<script>
+(function () {
+  const showMoreLabel = {{ T "show_more" | jsonify }};
+  const showLessLabel = {{ T "show_less" | jsonify }};
+  const storageKey = "morandi-theme";
+  const body = document.body;
+  const toggleButtons = () =>
+    document.querySelectorAll("[data-theme-toggle]");
+
+  const applyTheme = (theme) => {
+    const nextTheme = theme === "dark" ? "dark" : "light";
+    body.setAttribute("data-theme", nextTheme);
+    toggleButtons().forEach((btn) => {
+      const sun = btn.querySelector("[data-icon-sun]");
+      const moon = btn.querySelector("[data-icon-moon]");
+      btn.setAttribute("aria-pressed", nextTheme === "dark");
+      if (sun) sun.style.opacity = nextTheme === "dark" ? "0" : "1";
+      if (moon) moon.style.opacity = nextTheme === "dark" ? "1" : "0";
+    });
+  };
+
+  const stored = localStorage.getItem(storageKey);
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(stored || (prefersDark ? "dark" : "light"));
+
+  toggleButtons().forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const next =
+        body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      applyTheme(next);
+      localStorage.setItem(storageKey, next);
+    });
+  });
+})();
+
+(function () {
+  const wrappers = Array.from(document.querySelectorAll("[data-expandable]"));
+  if (!wrappers.length) return;
+
+  wrappers.forEach((wrapper) => {
+    const limit = parseInt(wrapper.dataset.limit, 10);
+    const content = wrapper.querySelector("[data-expandable-content]");
+    const toggle = wrapper.querySelector("[data-expand-toggle]");
+    if (!content || !Number.isFinite(limit)) return;
+    const items = Array.from(content.children);
+    if (items.length <= limit) {
+      if (toggle) toggle.remove();
+      return;
+    }
+
+    if (!toggle) return;
+
+    wrapper.dataset.state = "collapsed";
+    toggle.setAttribute("aria-expanded", "false");
+
+    const applyState = () => {
+      const expanded = wrapper.dataset.state === "expanded";
+      items.forEach((item, index) => {
+        const shouldHide = !expanded && index >= limit;
+        item.classList.toggle("hidden", shouldHide);
+      });
+      toggle.textContent = expanded ? showLessLabel : showMoreLabel;
+      toggle.setAttribute("aria-expanded", expanded.toString());
+    };
+
+    toggle.addEventListener("click", () => {
+      wrapper.dataset.state =
+        wrapper.dataset.state === "expanded" ? "collapsed" : "expanded";
+      applyState();
+    });
+
+    applyState();
+  });
+})();
+</script>

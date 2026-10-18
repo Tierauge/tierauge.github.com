@@ -1,0 +1,53 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+{{ $data := .Data }}
+<section id="{{ $section }}" class="contact section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div>
+      <h2>{{ $title }}</h2>
+    </div>
+  </div>
+  {{ with $data.author }}
+    <p class="contact-author">{{ .name }}</p>
+    {{ with .email }}
+      <a href="mailto:{{ . }}" class="text-link">{{ . }}</a>
+    {{ end }}
+  {{ end }}
+  <div class="contact-grid">
+    {{ range $data.locations }}
+      <div class="location-card">
+        <h3>{{ .name }}</h3>
+        {{ with .cta_label }}
+          <p class="location-cta-label">{{ . }}</p>
+        {{ end }}
+        {{ with .address }}
+          <p class="location-address">{{ . }}</p>
+        {{ end }}
+        {{ with .website }}
+          <a href="{{ .url | safeURL }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+        {{ end }}
+        {{ range .phones }}
+          <a href="tel:{{ replace .number " " "" }}" class="text-link">{{ .label }}: {{ .number }}</a>
+        {{ end }}
+        {{ with .cta_button }}
+          {{ $subject := printf "?subject=%s" (. | urlize) }}
+          {{ partial "components/cta-button.html" (dict "label" . "link" (printf "mailto:%s%s" $data.author.email $subject) "variant" "ghost" "extraClass" "location-cta") }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+  {{ with $data.social }}
+    <div class="contact-social">
+      {{ range . }}
+        <a href="{{ .url | safeURL }}" class="text-link" target="_blank" rel="noopener">{{ .label }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
+
+<div class="section-divider" aria-hidden="true">
+  {{ partial "motifs/wave-divider.html" (dict "variant" "line") }}
+  {{ partial "motifs/iris-circle.html" (dict "size" "32px" "opacity" 0.55 "class" "iris-motif--divider") }}
+</div>

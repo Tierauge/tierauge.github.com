@@ -1,0 +1,21 @@
+subline: "Persönliche Betreuung, sorgfältige Diagnostik und spezialisierte tierärztliche Augenheilkunde für Hunde und Katzen."
+name: "Dr. Sabine Sahr"
+title: "Tierärztin mit Zusatzbezeichnung Augenheilkunde"
+affiliation: "Mitglied im [Dortmunder Kreis (DOK)](https://www.dok-vet.de) – Gesellschaft für Diagnostik genetisch bedingter Augenerkrankungen"
+summary: >
+  Nach 4 Jahren an der Kleintierklinik der Universität Leipzig, arbeitete ich 6 Jahre
+  in der Augen-Tierarztpraxis Dr. I. Allgoewer in Berlin. Anschließend übernahm ich
+  die Augenheilkunde in der Anicura Tierklinik Potsdam für 2 Jahre, bin jetzt in die
+  Heimat zurückgekehrt und Teil des Teams der
+  [Tierarztpraxis Quandt und Bracke](https://www.tieraerzte-quandtundbracke.de/quandtundbracke).
+profile_image: "images/spaltlampe.jpg"
+profile_layout: "classic"
+profile_image_style: "circle"
+
+links:
+  - label: "Sprechzeiten"
+    link: "#sprechzeiten"
+  - label: "Kontakt"
+    link: "#kontakt"
+  - label: "Zur Wissensbank"
+    link: "/wissen/"

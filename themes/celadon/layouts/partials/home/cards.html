@@ -1,0 +1,19 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) $config.title }}
+{{ $items := .Data }}
+{{ if not $items }}
+  {{ $items = slice }}
+{{ end }}
+{{ $limit := default 3 $config.limit }}
+<section id="{{ $section }}" class="section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div><h2>{{ $title }}</h2></div>
+  </div>
+  {{ $grid := slice }}
+  {{ range $items }}
+    {{ $grid = $grid | append . }}
+  {{ end }}
+  {{ partial "components/expandable-grid.html" (dict "items" $grid "limit" $limit) }}
+</section>

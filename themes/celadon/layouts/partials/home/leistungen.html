@@ -1,0 +1,21 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+{{ $items := .Data }}
+<section id="{{ $section }}" class="leistungen section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div><h2>{{ $title }}</h2></div>
+  </div>
+  <div class="leistungen-grid">
+    {{ range $items }}
+      <a href="{{ .link | relLangURL }}" class="leistung-card">
+        {{ with .icon }}
+          <span class="leistung-icon">{{ partial "motifs/icon.html" . }}</span>
+        {{ end }}
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </a>
+    {{ end }}
+  </div>
+</section>

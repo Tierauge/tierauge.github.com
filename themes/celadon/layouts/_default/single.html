@@ -1,0 +1,37 @@
+{{ define "main" }}
+  <div class="article-shell">
+    {{ with or .Params.thumbnail .Params.image }}
+      <div class="article-hero">
+        <img src="{{ strings.TrimPrefix "/" . | relURL }}" alt="{{ $.Title }}">
+      </div>
+    {{ end }}
+    {{ $backHref := site.Home.Permalink }}
+    {{ if in (slice "wissensbank" "vortraege" "patientengeschichten") .Section }}
+      {{ with site.GetPage "/wissen" }}{{ $backHref = .RelPermalink }}{{ end }}
+    {{ else }}
+      {{ with .CurrentSection }}{{ $backHref = .RelPermalink }}{{ end }}
+    {{ end }}
+    <div class="article-top-row">
+      <a class="article-back" href="{{ $backHref }}">← Zurück</a>
+      <p class="article-date">{{ if .Date }}{{ .Date.Format "02.01.2006" }}{{ end }}</p>
+    </div>
+    <header class="article-head">
+      <h1 class="article-title">{{ .Title }}</h1>
+    </header>
+    <article class="article-content markdown-body">
+      {{ .Content }}
+    </article>
+    <div class="article-nav">
+      <div>
+        {{ with .NextInSection }}
+          <a href="{{ .RelPermalink }}">← {{ .Title }}</a>
+        {{ end }}
+      </div>
+      <div style="text-align:right;">
+        {{ with .PrevInSection }}
+          <a href="{{ .RelPermalink }}">{{ .Title }} →</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}

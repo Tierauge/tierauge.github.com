@@ -1,0 +1,30 @@
+- key: symptome-notfaelle
+  label: "Symptome und Notfälle"
+  description: "Warnzeichen erkennen und richtig reagieren"
+- key: hornhaut-bindehaut
+  label: "Hornhaut und Bindehaut"
+  description: "Verletzungen, Geschwüre, Entzündungen der Augenoberfläche"
+- key: linse-katarakt
+  label: "Linse und Katarakt"
+  description: "Inneres Auge, Iris, Vorderkammer und Grauer Star"
+- key: netzhaut-sehvermoegen
+  label: "Netzhaut und Sehvermögen"
+  description: "Sehverlust und Erkrankungen der Netzhaut"
+- key: glaukom-augeninnendruck
+  label: "Glaukom und Augeninnendruck"
+  description: "Grüner Star und Druckerkrankungen des Auges"
+- key: augenlider-traenenwege
+  label: "Augenlider und Tränenwege"
+  description: "Lidfehlstellungen, Nickhaut und Tränenfluss"
+- key: hunde
+  label: "Hunde"
+  description: "Augenerkrankungen mit Bezug zum Hund"
+- key: katzen
+  label: "Katzen"
+  description: "Augenerkrankungen mit Bezug zur Katze"
+- key: zuchtuntersuchungen
+  label: "Zuchtuntersuchungen"
+  description: "Anerkannte DOK-/ECVO-Augenuntersuchungen für Zuchttiere"
+- key: fachliches-fuer-tieraerzte
+  label: "Fachliches für Tierärzte"
+  description: "Fortbildungen, Vorträge und Publikationen"

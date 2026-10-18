@@ -1,0 +1,12 @@
+{{/*
+  Sandgoldenes Iris-/Sonnenkreis-Motiv aus dem Logo, als weicher Lichtschein.
+  Params (dict): size (CSS-Größe, default 220px), opacity (0-1, default 0.9),
+  class (optionale zusätzliche CSS-Klasse für abweichende Positionierung,
+  default keine).
+  Wird als absolut positioniertes Geschwisterelement VOR dem eigentlichen
+  Bild platziert; der Elternknoten braucht "position: relative".
+*/}}
+{{ $size := .size | default "220px" }}
+{{ $opacity := .opacity | default 0.9 }}
+{{ $extraClass := .class | default "" }}
+<span class="iris-motif{{ with $extraClass }} {{ . }}{{ end }}" style="--iris-size: {{ $size }}; --iris-opacity: {{ $opacity }};" aria-hidden="true"></span>

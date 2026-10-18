@@ -1,0 +1,186 @@
+{{/* Site-wide search: fetches /index.json lazily on first open, matches
+     client-side (no external library needed for ~50 short pages). */}}
+<dialog id="search-dialog" class="search-dialog" aria-label="{{ T "search_aria" }}">
+  <div class="search-panel">
+    <div class="search-input-row">
+      {{/* tabler: search */}}
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="{{ T "search_placeholder" }}"
+        aria-label="{{ T "search_placeholder" }}"
+        autocomplete="off"
+      >
+      <button type="button" id="search-close" aria-label="{{ T "search_close_aria" }}">
+        {{/* tabler: x */}}
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  </div>
+</dialog>
+
+<script>
+  (function () {
+    const openBtn = document.getElementById("nav-search-toggle");
+    const dialog = document.getElementById("search-dialog");
+    const closeBtn = document.getElementById("search-close");
+    const input = document.getElementById("search-input");
+    const resultsEl = document.getElementById("search-results");
+    if (!openBtn || !dialog || !closeBtn || !input || !resultsEl) return;
+
+    const indexUrl = {{ "index.json" | relURL }};
+    const noResultsLabel = {{ T "search_no_results" }};
+
+    let indexData = null;
+    let indexPromise = null;
+
+    const loadIndex = () => {
+      if (!indexPromise) {
+        indexPromise = fetch(indexUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            indexData = data;
+            return data;
+          });
+      }
+      return indexPromise;
+    };
+
+    const escapeHtml = (value) => {
+      const div = document.createElement("div");
+      div.textContent = value;
+      return div.innerHTML;
+    };
+
+    const runSearch = (query) => {
+      const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+      if (!words.length || !indexData) return [];
+
+      const matches = [];
+      indexData.forEach((item) => {
+        const title = (item.title || "").toLowerCase();
+        const description = (item.description || "").toLowerCase();
+        const content = (item.content || "").toLowerCase();
+        const haystack = title + " " + description + " " + content;
+
+        const allWordsMatch = words.every((word) => haystack.includes(word));
+        if (!allWordsMatch) return;
+
+        let score = 0;
+        words.forEach((word) => {
+          if (title.includes(word)) score += 3;
+          else if (description.includes(word)) score += 2;
+          else score += 1;
+        });
+
+        matches.push({ item, words, score });
+      });
+
+      matches.sort((a, b) => b.score - a.score);
+      return matches.slice(0, 20);
+    };
+
+    const buildSnippet = (item, words) => {
+      const content = item.content || "";
+      const lowerContent = content.toLowerCase();
+
+      let matchIndex = -1;
+      let matchLength = 0;
+      words.forEach((word) => {
+        const idx = lowerContent.indexOf(word);
+        if (idx !== -1 && (matchIndex === -1 || idx < matchIndex)) {
+          matchIndex = idx;
+          matchLength = word.length;
+        }
+      });
+
+      if (matchIndex === -1) {
+        const fallback = (item.description || content).slice(0, 140);
+        return escapeHtml(fallback) + (fallback.length < content.length ? "…" : "");
+      }
+
+      const radius = 70;
+      const start = Math.max(0, matchIndex - radius);
+      const end = Math.min(content.length, matchIndex + matchLength + radius);
+      const before = escapeHtml(content.slice(start, matchIndex));
+      const match = escapeHtml(content.slice(matchIndex, matchIndex + matchLength));
+      const after = escapeHtml(content.slice(matchIndex + matchLength, end));
+      const prefix = start > 0 ? "…" : "";
+      const suffix = end < content.length ? "…" : "";
+
+      return prefix + before + "<mark>" + match + "</mark>" + after + suffix;
+    };
+
+    const renderResults = (query, matches) => {
+      resultsEl.innerHTML = "";
+      if (!query.trim()) return;
+
+      if (!matches.length) {
+        const p = document.createElement("p");
+        p.className = "search-no-results";
+        p.textContent = noResultsLabel + " „" + query + "“";
+        resultsEl.appendChild(p);
+        return;
+      }
+
+      matches.forEach(({ item, words }) => {
+        const a = document.createElement("a");
+        a.className = "search-result";
+        a.href = item.url;
+
+        let html = "";
+        if (item.image) {
+          html +=
+            '<div class="search-result-thumb"><img src="' +
+            item.image +
+            '" alt="" loading="lazy"></div>';
+        }
+        html += '<div class="search-result-body">';
+        html += '<h3 class="search-result-title">' + escapeHtml(item.title) + "</h3>";
+        html += '<p class="search-result-snippet">' + buildSnippet(item, words) + "</p>";
+        html += "</div>";
+        a.innerHTML = html;
+
+        resultsEl.appendChild(a);
+      });
+    };
+
+    openBtn.addEventListener("click", () => {
+      dialog.showModal();
+      loadIndex();
+      input.focus();
+    });
+
+    closeBtn.addEventListener("click", () => dialog.close());
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener("close", () => {
+      input.value = "";
+      resultsEl.innerHTML = "";
+    });
+
+    let debounceTimer = null;
+    input.addEventListener("input", () => {
+      window.clearTimeout(debounceTimer);
+      const query = input.value;
+      debounceTimer = window.setTimeout(() => {
+        loadIndex().then(() => renderResults(query, runSearch(query)));
+      }, 150);
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      const first = resultsEl.querySelector(".search-result");
+      if (first) {
+        event.preventDefault();
+        window.location.href = first.getAttribute("href");
+      }
+    });
+  })();
+</script>

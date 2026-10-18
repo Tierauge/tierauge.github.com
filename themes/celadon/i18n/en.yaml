@@ -1,0 +1,26 @@
+nav_home:
+  other: "Home"
+theme_toggle_aria:
+  other: "Toggle theme"
+nav_toggle_aria:
+  other: "Open menu"
+scroll_top_aria:
+  other: "Go to Top"
+copy_code_aria:
+  other: "Copy code"
+show_more:
+  other: "Show More ↓"
+show_less:
+  other: "Show Less ↑"
+coauthors_label:
+  other: "Co-authors"
+powered_by:
+  other: "Powered by"
+search_aria:
+  other: "Open search"
+search_placeholder:
+  other: "Search…"
+search_no_results:
+  other: "No results found"
+search_close_aria:
+  other: "Close search"

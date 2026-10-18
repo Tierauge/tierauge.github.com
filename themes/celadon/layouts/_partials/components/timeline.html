@@ -1,0 +1,18 @@
+{{/* Params (dict): Items (list of {date, title, text}). text is markdown, run through enrich-text.html. */}}
+{{ $items := .Items }}
+{{ with $items }}
+  <div class="timeline">
+    <ol class="timeline-list">
+      {{ range . }}
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-card">
+            {{ with .date }}<span class="timeline-date">{{ . }}</span>{{ end }}
+            {{ with .title }}<h3 class="timeline-title">{{ . }}</h3>{{ end }}
+            {{ with .text }}<div class="timeline-text">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</div>{{ end }}
+          </div>
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+{{ end }}

@@ -1,0 +1,39 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+{{ $limit := default 5 (cond (and $config (isset $config "limit")) (index $config "limit") nil) }}
+{{ $items := .Data }}
+{{ if not $items }}
+  {{ $items = slice }}
+{{ end }}
+<section id="{{ $section }}" class="news section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div>
+      <h2>{{ $title }}</h2>
+    </div>
+  </div>
+  <div class="collapsible" data-expandable data-limit="{{ $limit }}">
+    <div class="news-list" data-expandable-content>
+      {{ range $items }}
+        {{ $detail := partial "utils/enrich-text.html" .detail }}
+        <article class="news-item">
+          <div class="news-date">{{ .date }}</div>
+          <div class="news-detail">
+            <p>{{ $detail | markdownify | safeHTML }}</p>
+            {{ with .badges }}
+              <div class="news-badges">
+                {{ range . }}
+                  <span class="news-badge">{{ . }}</span>
+                {{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+    {{ if gt (len $items) $limit }}
+      <button class="ghost-toggle" type="button" data-expand-toggle>{{ T "show_more" }}</button>
+    {{ end }}
+  </div>
+</section>

@@ -1,0 +1,88 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+{{ $data := .Data }}
+{{ $locations := $data.locations }}
+
+{{/* Union of weekdays used by any location, kept in calendar order, so every
+     location's table gets a row per day. Locations without hours on a given
+     day render an empty filler row that keeps both tables aligned when
+     shown side by side, and collapses away when the cards stack. */}}
+{{ $weekdayOrder := slice "Montag" "Dienstag" "Mittwoch" "Donnerstag" "Freitag" "Samstag" "Sonntag" }}
+{{ $usedDays := slice }}
+{{ range $locations }}
+  {{ range .rows }}
+    {{ if not (in $usedDays .day) }}
+      {{ $usedDays = $usedDays | append .day }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $allDays := slice }}
+{{ range $weekdayOrder }}
+  {{ if in $usedDays . }}
+    {{ $allDays = $allDays | append . }}
+  {{ end }}
+{{ end }}
+
+{{/* Likewise, if any location has a note before/after the table, give the
+     others a matching filler line so the tables start/end at the same
+     height when the cards are side by side. */}}
+{{ $hasNoteBefore := false }}
+{{ $hasNoteAfter := false }}
+{{ range $locations }}
+  {{ if .note }}{{ $hasNoteBefore = true }}{{ end }}
+  {{ if .note_after }}{{ $hasNoteAfter = true }}{{ end }}
+{{ end }}
+
+<section id="{{ $section }}" class="hours section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div>
+      <h2>{{ $title }}</h2>
+    </div>
+  </div>
+  <div class="hours-locations">
+    {{ range $locations }}
+      {{ $rowsByDay := dict }}
+      {{ range .rows }}
+        {{ if .day }}
+          {{ $rowsByDay = merge $rowsByDay (dict .day (.time | default "")) }}
+        {{ end }}
+      {{ end }}
+      <div class="hours-location">
+        <h3>{{ .name }}{{ with .city }} &middot; {{ . }}{{ end }}</h3>
+        {{ if .note }}
+          <p class="hours-note">{{ .note }}</p>
+        {{ else if $hasNoteBefore }}
+          <p class="hours-note hours-filler" aria-hidden="true">&nbsp;</p>
+        {{ end }}
+        <table class="hours-table">
+          <tbody>
+            {{ range $allDays }}
+              {{ $day := . }}
+              {{ if isset $rowsByDay $day }}
+                <tr>
+                  <td class="hours-day">{{ $day }}</td>
+                  <td class="hours-time">{{ index $rowsByDay $day }}</td>
+                </tr>
+              {{ else }}
+                <tr class="hours-filler" aria-hidden="true">
+                  <td class="hours-day">&nbsp;</td>
+                  <td class="hours-time">&nbsp;</td>
+                </tr>
+              {{ end }}
+            {{ end }}
+          </tbody>
+        </table>
+        {{ if .note_after }}
+          <p class="hours-note">{{ .note_after }}</p>
+        {{ else if $hasNoteAfter }}
+          <p class="hours-note hours-filler" aria-hidden="true">&nbsp;</p>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+  {{ with $data.notes }}
+    <div class="hours-notes">{{ partial "utils/enrich-text.html" . | markdownify | safeHTML }}</div>
+  {{ end }}
+</section>

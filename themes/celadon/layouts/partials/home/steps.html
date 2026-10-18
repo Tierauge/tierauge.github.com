@@ -1,0 +1,21 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+{{ $items := .Data }}
+<section id="{{ $section }}" class="steps section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div><h2>{{ $title }}</h2></div>
+  </div>
+  <ol class="steps-list">
+    {{ range $items }}
+      <li class="steps-item">
+        <span class="steps-number">{{ .step }}</span>
+        <div>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </div>
+      </li>
+    {{ end }}
+  </ol>
+</section>

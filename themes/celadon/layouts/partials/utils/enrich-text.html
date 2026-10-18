@@ -1,0 +1,6 @@
+{{- $text := . -}}
+{{- if not $text }}{{- else -}}
+  {{- $text = replaceRE `==([^=]+)==` `<mark>$1</mark>` $text -}}
+  {{- $text = replaceRE `~~([^~]+)~~` `<span class="text-accent">$1</span>` $text -}}
+  {{- $text | markdownify -}}
+{{- end -}}

@@ -1,0 +1,31 @@
+author:
+  name: "Dr. med. vet. Sabine Sahr"
+  email: "tierauge@gmail.com"
+
+locations:
+  - name: "Tierarztpraxis Quandt und Bracke"
+    city: "Greifswald"
+    address: "An den Wurthen 26, 17489 Greifswald"
+    cta_label: "Sprechstunde, Spezialdiagnostik und Operationen"
+    cta_button: "Termin in Greifswald anfragen"
+    website:
+      label: "tieraerzte-quandtundbracke.de"
+      url: "https://www.tieraerzte-quandtundbracke.de"
+    phones:
+      - { label: "Telefon", number: "+49 3834 504672" }
+      - { label: "Mobil", number: "+49 172 3006894" }
+
+  - name: "Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann"
+    city: "Neubrandenburg"
+    address: "Fritz-Reuter-Straße 7, 17033 Neubrandenburg"
+    cta_label: "Augensprechstunde und ausgewählte Spezialdiagnostik"
+    cta_button: "Termin in Neubrandenburg anfragen"
+    website:
+      label: "lehmann-tierarzt.de"
+      url: "https://www.lehmann-tierarzt.de"
+    phones:
+      - { label: "Telefon", number: "+49 395 5442604" }
+
+social:
+  - { label: "Facebook", url: "https://www.facebook.com/TieraugenDoc" }
+  - { label: "Twitter", url: "https://twitter.com/TieraugenDoc" }

@@ -1,0 +1,22 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+{{ $data := .Data }}
+<section id="{{ $section }}" class="map section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div>
+      <h2>{{ $title }}</h2>
+    </div>
+  </div>
+  <div class="map-grid">
+    {{ range $data.embeds }}
+      <div class="map-card">
+        {{ with .city }}<h3>{{ . }}</h3>{{ end }}
+        <div class="map-embed">
+          <iframe src="{{ .src | safeURL }}" title="{{ .label }}" loading="lazy" allowfullscreen></iframe>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</section>

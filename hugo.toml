@@ -1,0 +1,134 @@
+theme = "celadon"
+publishDir = "docs"  # GitHub Pages serves master:/docs
+baseURL = "https://tieraugen.doctor/"
+locale = "de-DE"
+defaultContentLanguage = "de"
+title = "Tierauge im Fokus"
+enableRobotsTXT = true
+
+[params]
+  description = "Spezialisierte Augenheilkunde, persönliche Betreuung und eine enge Zusammenarbeit mit Ihrer Haustierarztpraxis – mit Dr. Sabine Sahr in Greifswald und Neubrandenburg."
+
+[taxonomies]
+  tag = "tags"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "friendly"
+    noClasses = false
+    lineNos = true
+    guessSyntax = true
+
+[[cascade]]
+  layout = "single"
+  [cascade.target]
+    path = "/**"
+    kind = "page"
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[params.homepage]
+  sections = ["praxis", "about", "vertrauen", "leistungen", "ablauf", "fuertieraerzte", "wissenteaser", "sprechzeiten", "kontakt", "anfahrt"]
+
+  [params.homepage.praxis]
+    enable = true
+    layout = "brand-hero"
+    showInMenu = false
+
+  [params.homepage.about]
+    enable = true
+    layout = "hero"
+    title = "Über mich"
+
+  [params.homepage.vertrauen]
+    enable = true
+    layout = "trustbar"
+    showInMenu = false
+
+  [params.homepage.leistungen]
+    enable = true
+    layout = "leistungen"
+    title = "Unsere Leistungsbereiche"
+    showInMenu = false
+
+  [params.homepage.ablauf]
+    enable = true
+    layout = "steps"
+    title = "Was geschieht bei einer Augenuntersuchung?"
+    showInMenu = false
+
+  [params.homepage.sprechzeiten]
+    enable = true
+    layout = "hours"
+    title = "Sprechzeiten"
+
+  [params.homepage.kontakt]
+    enable = true
+    layout = "contact"
+    title = "Kontakt"
+
+  [params.homepage.anfahrt]
+    enable = true
+    layout = "map"
+    title = "Anfahrt"
+
+  [params.homepage.fuertieraerzte]
+    enable = true
+    layout = "teaser"
+    title = "Für überweisende Tierärzte"
+    text = "Die spezialisierte Diagnostik und Behandlung erfolgt in enger Abstimmung mit der überweisenden Haustierarztpraxis. Nach Abschluss der Behandlung werden Befunde, Therapieplan und Empfehlungen übermittelt und der Patient zurücküberwiesen."
+    ctaLabel = "Informationen für Tierärzte"
+    ctaUrl = "/fuer-tieraerzte/"
+    showInMenu = false
+
+  [params.homepage.wissenteaser]
+    enable = true
+    layout = "teaser"
+    title = "Tieraugen verstehen"
+    text = "Verständliche Informationen zu häufigen Augenerkrankungen bei Hund und Katze, Fallberichten und Fortbildungen."
+    ctaLabel = "Zur Wissensbank"
+    ctaUrl = "/wissen/"
+    showInMenu = false
+
+[params.nav]
+  moreLabel = "Mehr"
+
+  [[params.nav.primaryLinks]]
+    title = "Startseite"
+    url = "/"
+
+  [[params.nav.primaryLinks]]
+    title = "Augenheilkunde"
+    url = "/augenheilkunde/"
+
+  [[params.nav.primaryLinks]]
+    title = "Augenoperationen"
+    url = "/augenoperationen/"
+
+  [[params.nav.primaryLinks]]
+    title = "Über mich"
+    url = "/ueber-mich/"
+
+  [[params.nav.primaryLinks]]
+    title = "Wissen"
+    url = "/wissen/"
+
+  [[params.nav.primaryLinks]]
+    title = "Für Tierärzte"
+    url = "/fuer-tieraerzte/"
+
+  [[params.nav.primaryLinks]]
+    title = "Standorte & Kontakt"
+    url = "/standorte-kontakt/"
+
+  [[params.nav.extraLinks]]
+    title = "Impressum"
+    url = "/impressum/"
+
+  [[params.nav.extraLinks]]
+    title = "Datenschutz"
+    url = "/datenschutz/"

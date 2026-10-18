@@ -1,0 +1,12 @@
+{{/* Params (dict): label, link (URL, #Anker, tel:, mailto:), variant ("primary"|"ghost"), extraClass (optional). */}}
+{{ $label := .label }}
+{{ $link := .link }}
+{{ $variant := .variant | default "primary" }}
+{{ $isSpecial := or (hasPrefix $link "tel:") (hasPrefix $link "mailto:") }}
+{{ $isExternal := hasPrefix $link "http" }}
+{{ $isAnchor := hasPrefix $link "#" }}
+<a
+  href="{{ if or $isSpecial $isExternal $isAnchor }}{{ $link | safeURL }}{{ else }}{{ $link | relLangURL }}{{ end }}"
+  class="cta-button cta-button--{{ $variant }}{{ with .extraClass }} {{ . }}{{ end }}"
+  {{ if $isExternal }}target="_blank" rel="noopener"{{ end }}
+>{{ $label }}</a>

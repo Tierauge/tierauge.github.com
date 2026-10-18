@@ -1,0 +1,15 @@
+name = "Celadon"
+license = "MIT"
+licenselink = "https://github.com/Yajie-Xu/hugo-celadon/blob/main/LICENSE.txt"
+description = "A one-page portfolio theme exploring the equilibrium between academic rigor and creative design."
+
+homepage = "https://github.com/Yajie-Xu/hugo-celadon/"
+demosite = "https://yajie-xu.github.io/hugo-celadon/"
+
+tags = ["portfolio", "personal", "academic", "blog", "minimal", "responsive", "one-page", "dark-mode"]
+features = ["math", "syntax highlighting", "dark mode", "projects", "deep-linking"]
+min_version = "0.120.0"
+
+[author]
+  name = "Yajie Xu"
+  homepage = "https://yajiexu.com"

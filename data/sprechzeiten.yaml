@@ -1,0 +1,21 @@
+locations:
+  - name: "Tierarztpraxis Quandt und Bracke"
+    city: "Greifswald"
+    note: "Verkürzt wegen Elternzeit"
+    rows:
+      - { day: "Montag" }
+      - { day: "Dienstag" }
+      - { day: "Donnerstag" }
+      - { day: "Freitag" }
+    note_after: "sowie nach Vereinbarung"
+  - name: "Tierarztpraxis für Kleintiere Dipl.-Vet.-Med. Andrea Lehmann"
+    city: "Neubrandenburg"
+    rows:
+      - { day: "Mittwoch" }
+
+notes: >
+  Notfälle werden, nach Absprache, auch außerhalb der Sprechzeiten versorgt.
+
+
+  **Zuchtuntersuchungen** können ab drei Tieren auch außerhalb der Praxis erfolgen.
+  Anfragen über [tierauge@gmail.com](mailto:tierauge@gmail.com?subject=Zuchtuntersuchung).

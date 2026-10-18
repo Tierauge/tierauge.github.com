@@ -1,0 +1,21 @@
+{{/*
+  Wellenmotiv, abgeleitet von der Augenlid-/Wellenkurve im Logo.
+  Params (dict): color (CSS-Farbwert, default var(--color-highlight)),
+  variant ("line" | "fill", default "line"), height (px), flip (bool).
+*/}}
+{{ $color := .color | default "var(--color-highlight)" }}
+{{ $variant := .variant | default "line" }}
+{{ $height := .height | default (cond (eq $variant "fill") 64 28) }}
+{{ $flip := .flip | default false }}
+{{ $style := printf "--wave-color: %s; --wave-height: %dpx;" $color $height }}
+<div class="wave-motif wave-motif--{{ $variant }}{{ if $flip }} wave-motif--flip{{ end }}" style="{{ $style | safeCSS }}" aria-hidden="true">
+  {{ if eq $variant "fill" }}
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,44 C100,10 200,10 300,44 C400,78 500,78 600,44 C700,10 800,10 900,44 C1000,78 1100,78 1200,44 L1200,120 L0,120 Z" style="fill: var(--wave-color);"></path>
+    </svg>
+  {{ else }}
+    <svg viewBox="0 0 400 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2,20 C70,2 110,38 180,20 C250,2 290,38 360,18 C380,14 390,16 398,20" style="fill: none; stroke: var(--wave-color); stroke-width: 3px; stroke-linecap: round;"></path>
+    </svg>
+  {{ end }}
+</div>

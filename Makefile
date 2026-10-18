@@ -1,18 +1,12 @@
 all: build
 
 build:
-	bundle exec jekyll build -d docs
-	cp CNAME docs/
+	hugo --minify --cleanDestinationDir
 
 preview:
-	bundle exec jekyll serve --force_polling --livereload
+	hugo server
 
-diff:
-	git status
-
-publish:
-	git add -u
-	git add assets
-	git add docs
+publish: build
+	git add -A docs content data static themes hugo.toml
 	git commit -m "automatic commit"
 	git push origin master

@@ -1,0 +1,47 @@
+{{ define "main" }}
+  {{ $page := . }}
+  {{ $lang := site.Language.Lang }}
+  {{ $defaultLang := hugo.Sites.Default.Language.Lang }}
+
+  {{ range $section := site.Params.homepage.sections }}
+    {{ $config := index site.Params.homepage $section }}
+
+    {{ $enabled := true }}
+    {{ if and $config (isset $config "enable") }}
+       {{ $enabled = $config.enable }}
+    {{ end }}
+
+    {{ if $enabled }}
+
+      {{ $layout := default $section (index $config "layout") }}
+      {{ $layout = lower $layout }}
+
+      {{ $dataKey := lower $section }}
+      {{ $langData := index hugo.Data $lang }}
+      {{ $data := index $langData $dataKey }}
+      {{ if not $data }}
+        {{ $defaultData := index hugo.Data $defaultLang }}
+        {{ $data = index $defaultData $dataKey }}
+      {{ end }}
+      {{ if not $data }}
+        {{/* Single-language sites: data files live directly under data/, not data/<lang>/ */}}
+        {{ $data = index hugo.Data $dataKey }}
+      {{ end }}
+
+      {{ if reflect.IsMap $data }}
+         {{ if isset $data $dataKey }}
+            {{ $data = index $data $dataKey }}
+         {{ else if isset $data "items" }}
+            {{ $data = $data.items }}
+         {{ else if isset $data "papers" }}
+            {{ $data = $data.papers }}
+         {{ else if isset $data "builds" }}
+             {{ $data = $data.builds }}
+         {{ end }}
+      {{ end }}
+
+      {{ partial (printf "home/%s.html" $layout) (dict "Page" $page "Config" $config "Data" $data "Section" $section) }}
+
+    {{ end }}
+  {{ end }}
+{{ end }}

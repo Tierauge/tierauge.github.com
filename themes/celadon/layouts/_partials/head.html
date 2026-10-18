@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+<title>{{ $title }}</title>
+{{ $description := .Description | default site.Params.description }}
+{{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
+
+<meta name="theme-color" content="#06475F" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B2530" media="(prefers-color-scheme: dark)">
+
+{{ $ogImage := "" }}
+{{ with .Params.image }}{{ $ogImage = absURL (strings.TrimPrefix "/" .) }}{{ end }}
+{{ if not $ogImage }}{{ $ogImage = absURL "images/brand/logo.png" }}{{ end }}
+
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if in (slice "wissensbank" "patientengeschichten" "vortraege") .Section }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+{{ with $description }}<meta property="og:description" content="{{ . }}">{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:locale" content="de_DE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+{{ with $description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+<meta name="twitter:image" content="{{ $ogImage }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="{{ "favicon-96x96.png" | relURL }}" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
+
+{{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{/* Set synchronously (not in the deferred body script) so section-block
+     elements start hidden before first paint - no flash of visible content
+     that then jumps to hidden once the reveal observer attaches. */}}
+<script>document.documentElement.classList.add("js-reveal");</script>
+
+<link rel="stylesheet" href="{{ "vendor/katex/katex.min.css" | absURL }}">
+<script defer src="{{ "vendor/katex/katex.min.js" | absURL }}"></script>
+<script defer src="{{ "vendor/katex/auto-render.min.js" | absURL }}"></script>
+
+{{ partial "head/structured-data.html" . }}

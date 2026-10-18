@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default `en` }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body data-theme="light">
+    {{ partial "emergency-banner.html" . }}
+    <nav class="morandi-nav" id="site-nav">
+      <div class="brand">
+        <a href="{{ site.Home.Permalink }}">
+          <img src="{{ "images/brand/logo.png" | relURL }}" alt="{{ site.Title }}" class="brand-logo">
+          <span class="brand-name">{{ site.Title }}</span>
+        </a>
+      </div>
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="{{ T "nav_toggle_aria" }}"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <div class="nav-links">
+          {{ range site.Params.nav.primaryLinks }}
+            <a href="{{ .url | relLangURL }}"{{ if eq $.RelPermalink .url }} aria-current="page"{{ end }}>{{ .title }}</a>
+          {{ end }}
+        </div>
+        {{ with site.Params.nav.extraLinks }}
+          <details class="nav-more">
+            <summary>{{ site.Params.nav.moreLabel | default "More" }}</summary>
+            <div class="nav-more-menu">
+              {{ range . }}<a href="{{ .url | relLangURL }}">{{ .title }}</a>{{ end }}
+            </div>
+          </details>
+        {{ end }}
+        {{ partial "components/lang-switcher.html" . }}
+        {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "#kontakt" "variant" "primary" "extraClass" "nav-cta") }}
+        <button class="theme-toggle" data-theme-toggle aria-label="{{ T "theme_toggle_aria" }}">
+          {{/* tabler: sun */}}
+          <span class="icon" data-icon-sun><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg></span>
+          {{/* tabler: moon */}}
+          <span class="icon" data-icon-moon><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008" /></svg></span>
+        </button>
+      </div>
+      <button
+        class="nav-search-toggle"
+        id="nav-search-toggle"
+        type="button"
+        aria-label="{{ T "search_aria" }}"
+      >
+        {{/* tabler: search */}}
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+      </button>
+    </nav>
+
+    <div class="page-shell">
+      <main class="main-container">
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+    {{ partial "components/mobile-action-bar.html" . }}
+
+    {{ partial "components/search.html" . }}
+
+    {{ partial "foot/scripts.html" . }}
+
+    <button id="scroll-top" aria-label="{{ T "scroll_top_aria" }}">
+      {{/* tabler: arrow-up */}}
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5l0 14" /><path d="M18 11l-6 -6" /><path d="M6 11l6 -6" /></svg>
+    </button>
+
+    <script>
+      (function () {
+        const renderQueuedMath = () => {
+          const attempt = () => {
+            if (
+              typeof window !== "undefined" &&
+              typeof window.renderMathInElement === "function" &&
+              typeof window.katex !== "undefined"
+            ) {
+              window.renderMathInElement(document.body, {
+                delimiters: [
+                  { left: "$$", right: "$$", display: true },
+                  { left: "$", right: "$", display: false },
+                  { left: "\\(", right: "\\)", display: false },
+                  { left: "\\[", right: "\\]", display: true },
+                ],
+                throwOnError: false,
+              });
+              return true;
+            }
+            return false;
+          };
+          const tick = () => {
+            if (!attempt()) {
+              window.requestAnimationFrame(tick);
+            }
+          };
+          tick();
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", renderQueuedMath);
+        } else {
+          renderQueuedMath();
+        }
+
+        document.querySelectorAll(".highlight").forEach(function (highlight) {
+          const codeBlock = highlight.querySelector("td.lntd:last-child pre code");
+          if (!codeBlock) return;
+
+          const langClass = Array.from(codeBlock.classList).find((cls) =>
+            cls.startsWith("language-")
+          );
+          const label = langClass ? langClass.replace("language-", "").toUpperCase() : "CODE";
+
+          const frame = document.createElement("div");
+          frame.className = "code-frame";
+
+          const header = document.createElement("div");
+          header.className = "code-frame__header";
+          const langTag = document.createElement("span");
+          langTag.className = "code-frame__lang";
+          langTag.textContent = label;
+          header.appendChild(langTag);
+
+          const button = document.createElement("button");
+          button.className = "copy-btn";
+          button.ariaLabel = {{ T "copy_code_aria" | jsonify }};
+          const iconClipboard = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />
+              <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+            </svg>
+          `;
+          const iconCheck = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12l5 5l10 -10" />
+            </svg>
+          `;
+          button.innerHTML = iconClipboard;
+          header.appendChild(button);
+
+          const body = document.createElement("div");
+          body.className = "code-frame__body";
+          frame.appendChild(header);
+          frame.appendChild(body);
+
+          const parent = highlight.parentNode;
+          highlight.classList.add("code-frame__table");
+          parent.replaceChild(frame, highlight);
+          body.appendChild(highlight);
+
+          button.addEventListener("click", function () {
+            navigator.clipboard.writeText(codeBlock.innerText).then(function () {
+              button.classList.add("copied");
+              button.innerHTML = iconCheck;
+              setTimeout(function () {
+                button.classList.remove("copied");
+                button.innerHTML = iconClipboard;
+              }, 2000);
+            });
+          });
+        });
+      })();
+      (function () {
+        const btn = document.getElementById("scroll-top");
+        if (!btn) return;
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            btn.classList.add("show-scroll");
+          } else {
+            btn.classList.remove("show-scroll");
+          }
+        });
+        btn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      })();
+      (function () {
+        const nav = document.getElementById("site-nav");
+        if (!nav) return;
+        window.addEventListener("scroll", () => {
+          nav.classList.toggle("morandi-nav--compact", window.scrollY > 80);
+        });
+      })();
+      (function () {
+        const nav = document.getElementById("site-nav");
+        const toggle = document.getElementById("nav-toggle");
+        const menu = document.getElementById("nav-menu");
+        const navLinks = menu ? menu.querySelector(".nav-links") : null;
+        if (!nav || !toggle || !menu || !navLinks) return;
+
+        const closeMenu = () => {
+          menu.classList.remove("is-open");
+          toggle.classList.remove("is-active");
+          toggle.setAttribute("aria-expanded", "false");
+        };
+
+        toggle.addEventListener("click", () => {
+          const isOpen = menu.classList.toggle("is-open");
+          toggle.classList.toggle("is-active", isOpen);
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeMenu();
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!menu.classList.contains("is-open")) return;
+          if (menu.contains(event.target) || toggle.contains(event.target)) return;
+          closeMenu();
+        });
+
+        // Measures whether the nav links fit in one row with everything
+        // else (brand, "Mehr", CTA, theme toggle) visible at once. If not,
+        // switches to the hamburger layout - independent of a fixed
+        // viewport breakpoint, since the exact point where it stops
+        // fitting depends on font rendering and available width.
+        const fitsExpanded = () => {
+          const wasCollapsed = nav.classList.contains("nav-collapsed");
+          if (wasCollapsed) nav.classList.remove("nav-collapsed");
+          const fits = navLinks.scrollWidth <= navLinks.clientWidth + 1;
+          if (wasCollapsed) nav.classList.add("nav-collapsed");
+          return fits;
+        };
+
+        const updateLayout = () => {
+          const isCollapsed = nav.classList.contains("nav-collapsed");
+          if (isCollapsed && fitsExpanded()) {
+            nav.classList.remove("nav-collapsed");
+            closeMenu();
+          } else if (!isCollapsed && !fitsExpanded()) {
+            nav.classList.add("nav-collapsed");
+            closeMenu();
+          }
+        };
+
+        updateLayout();
+        window.addEventListener("load", updateLayout);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(updateLayout);
+        }
+
+        let resizeFrame = null;
+        window.addEventListener("resize", () => {
+          if (resizeFrame) return;
+          resizeFrame = window.requestAnimationFrame(() => {
+            resizeFrame = null;
+            updateLayout();
+          });
+        });
+      })();
+      (function () {
+        const sections = document.querySelectorAll(".section-block");
+        if (!sections.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (!("IntersectionObserver" in window)) {
+          sections.forEach((section) => section.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
+        );
+        sections.forEach((section) => observer.observe(section));
+      })();
+    </script>
+  </body>
+</html>

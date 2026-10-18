@@ -1,0 +1,38 @@
+{{ $kontakt := index hugo.Data "kontakt" }}
+{{ $phone := "" }}
+{{ with $kontakt }}
+  {{ with .locations }}
+    {{ with (index . 0).phones }}
+      {{ with index . 0 }}
+        {{ $phone = .number }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $email := "" }}
+{{ with $kontakt.author }}
+  {{ $email = .email }}
+{{ end }}
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-wave">
+      {{ partial "motifs/wave-divider.html" (dict "variant" "line" "color" "var(--color-gold)") }}
+    </div>
+    <div class="footer-grid">
+      <div class="footer-contact">
+        {{ if $phone }}<a href="tel:{{ replace $phone " " "" }}">{{ $phone }}</a>{{ end }}
+        {{ if $email }}<a href="mailto:{{ $email }}">{{ $email }}</a>{{ end }}
+      </div>
+      <div class="footer-links">
+        {{ range site.Params.nav.extraLinks }}
+          <a href="{{ .url | relLangURL }}">{{ .title }}</a>
+        {{ end }}
+      </div>
+    </div>
+    <div class="footer-container">
+      &copy; {{ now.Format "2006" }} {{ site.Title }} • {{ T "powered_by" }}
+      <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &
+      <a href="https://github.com/Yajie-Xu/hugo-celadon" target="_blank" rel="noopener">Celadon</a>
+    </div>
+  </div>
+</footer>

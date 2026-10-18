@@ -1,0 +1,13 @@
+{{ $section := .Section }}
+{{ $config := .Config }}
+{{ $title := default (humanize $section) (cond (and $config (isset $config "title")) (index $config "title") nil) }}
+<section id="{{ $section }}" class="teaser section-block">
+  <div class="section-heading">
+    <span class="bar"></span>
+    <div><h2>{{ $title }}</h2></div>
+  </div>
+  {{ with $config.text }}<p class="teaser-text">{{ . }}</p>{{ end }}
+  {{ with $config.ctaUrl }}
+    {{ partial "components/cta-button.html" (dict "label" ($config.ctaLabel | default "Mehr erfahren") "link" . "variant" "ghost") }}
+  {{ end }}
+</section>

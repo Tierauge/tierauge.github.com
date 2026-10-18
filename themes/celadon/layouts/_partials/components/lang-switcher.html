@@ -1,0 +1,33 @@
+{{- /*
+Renders a language switcher linking to the translated version of the
+current page for each configured site language. Renders nothing on a
+single-language site.
+
+@context {page} . The current page.
+
+@example: {{ partial "components/lang-switcher.html" . }}
+*/}}
+
+{{- $page := . -}}
+{{- if hugo.IsMultilingual -}}
+  <nav class="lang-switcher" aria-label="Language">
+    {{- range hugo.Sites -}}
+      {{- $s := . -}}
+      {{- $isCurrent := eq $s.Language.Lang $page.Language.Lang -}}
+      {{- $href := $s.Home.RelPermalink -}}
+      {{- range $page.AllTranslations -}}
+        {{- if eq .Language.Lang $s.Language.Lang -}}
+          {{- $href = .RelPermalink -}}
+        {{- end -}}
+      {{- end -}}
+      <a
+        href="{{ $href }}"
+        class="lang-link{{ if $isCurrent }} active{{ end }}"
+        hreflang="{{ $s.Language.Lang }}"
+        {{- if $isCurrent }}
+        aria-current="true"
+        {{- end }}
+      >{{ $s.Language.Lang | upper }}</a>
+    {{- end -}}
+  </nav>
+{{- end -}}

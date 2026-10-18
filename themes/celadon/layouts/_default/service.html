@@ -1,0 +1,43 @@
+{{ define "main" }}
+  {{ $kontakt := index hugo.Data "kontakt" }}
+  {{ $phone := "" }}
+  {{ with $kontakt }}
+    {{ with .locations }}
+      {{ with (index . 0).phones }}
+        {{ with index . 0 }}
+          {{ $phone = .number }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  <div class="article-shell service-shell">
+    <header class="article-head">
+      <h1 class="article-title">{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="service-subtitle">{{ . }}</p>{{ end }}
+    </header>
+    <article class="article-content markdown-body">
+      {{ .Content }}
+    </article>
+    {{ with .Params.related_category }}
+      {{ $cat := . }}
+      {{ $pool := (where site.RegularPages "Section" "wissensbank").ByTitle }}
+      {{ $related := where $pool "Params.categories" "intersect" (slice $cat) }}
+      {{ with $related }}
+        <div class="related-articles">
+          <h2>Weiterführende Artikel aus der Wissensbank</h2>
+          <ul>
+            {{ range first 4 . }}
+              <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="service-cta">
+      {{ partial "components/cta-button.html" (dict "label" "Termin anfragen" "link" "/standorte-kontakt/" "variant" "primary") }}
+      {{ if $phone }}
+        {{ partial "components/cta-button.html" (dict "label" "Praxis anrufen" "link" (printf "tel:%s" (replace $phone " " "")) "variant" "ghost") }}
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

@@ -1,0 +1,9 @@
+{{ $section := .Section }}
+{{ $items := .Data }}
+<div id="{{ $section }}" class="trustbar" aria-label="Vertrauensmerkmale">
+  <div class="trustbar-row">
+    {{ range $items }}
+      <span class="trustbar-badge">{{ . }}</span>
+    {{ end }}
+  </div>
+</div>

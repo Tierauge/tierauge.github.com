@@ -1,0 +1,26 @@
+nav_home:
+  other: "Strona główna"
+theme_toggle_aria:
+  other: "Przełącz motyw"
+nav_toggle_aria:
+  other: "Otwórz menu"
+scroll_top_aria:
+  other: "Przewiń do góry"
+copy_code_aria:
+  other: "Kopiuj kod"
+show_more:
+  other: "Pokaż więcej ↓"
+show_less:
+  other: "Pokaż mniej ↑"
+coauthors_label:
+  other: "Współautorzy"
+powered_by:
+  other: "Obsługiwane przez"
+search_aria:
+  other: "Otwórz wyszukiwanie"
+search_placeholder:
+  other: "Szukaj…"
+search_no_results:
+  other: "Brak wyników"
+search_close_aria:
+  other: "Zamknij wyszukiwanie"

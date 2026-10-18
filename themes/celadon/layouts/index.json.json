@@ -1,0 +1,19 @@
+{{- $excludedSections := slice "wissensbank" "patientengeschichten" "vortraege" -}}
+{{- $pages := where site.Pages "Kind" "in" (slice "page" "home" "section") -}}
+{{- $items := slice -}}
+{{- range $pages -}}
+  {{- if not (and .IsSection (in $excludedSections .Section)) -}}
+    {{- $rawImage := .Params.thumbnail | default .Params.image | default "" -}}
+    {{- $image := "" -}}
+    {{- with $rawImage -}}{{ $image = . | strings.TrimPrefix "/" | relURL }}{{- end -}}
+    {{- $items = $items | append (dict
+        "title" .Title
+        "url" .RelPermalink
+        "image" $image
+        "description" (.Description | default (.Summary | plainify) | default "")
+        "content" .Plain
+      )
+    -}}
+  {{- end -}}
+{{- end -}}
+{{ $items | jsonify }}
